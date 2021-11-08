@@ -1,0 +1,10 @@
+C:\Users\Admin\source\repos\SubNetCalc\SubNetCalc\bin\Debug\SubNetCalc.exe.config
+C:\Users\Admin\source\repos\SubNetCalc\SubNetCalc\bin\Debug\SubNetCalc.exe
+C:\Users\Admin\source\repos\SubNetCalc\SubNetCalc\bin\Debug\SubNetCalc.pdb
+C:\Users\Admin\source\repos\SubNetCalc\SubNetCalc\obj\Debug\SubNetCalc.csproj.AssemblyReference.cache
+C:\Users\Admin\source\repos\SubNetCalc\SubNetCalc\obj\Debug\SubNetCalc.Form1.resources
+C:\Users\Admin\source\repos\SubNetCalc\SubNetCalc\obj\Debug\SubNetCalc.Properties.Resources.resources
+C:\Users\Admin\source\repos\SubNetCalc\SubNetCalc\obj\Debug\SubNetCalc.csproj.GenerateResource.cache
+C:\Users\Admin\source\repos\SubNetCalc\SubNetCalc\obj\Debug\SubNetCalc.csproj.CoreCompileInputs.cache
+C:\Users\Admin\source\repos\SubNetCalc\SubNetCalc\obj\Debug\SubNetCalc.exe
+C:\Users\Admin\source\repos\SubNetCalc\SubNetCalc\obj\Debug\SubNetCalc.pdb
