@@ -141,6 +141,7 @@ namespace SubNetCalc
             this.IPAddress.Name = "IPAddress";
             this.IPAddress.Size = new System.Drawing.Size(190, 20);
             this.IPAddress.TabIndex = 7;
+            this.IPAddress.TextChanged += new System.EventHandler(this.IPAddress_TextChanged);
             // 
             // label5
             // 
@@ -276,6 +277,7 @@ namespace SubNetCalc
             this.WildcartMask.Name = "WildcartMask";
             this.WildcartMask.Size = new System.Drawing.Size(190, 20);
             this.WildcartMask.TabIndex = 25;
+            this.WildcartMask.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.WildcartMask.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // HexIPAddress
@@ -285,6 +287,7 @@ namespace SubNetCalc
             this.HexIPAddress.Name = "HexIPAddress";
             this.HexIPAddress.Size = new System.Drawing.Size(190, 20);
             this.HexIPAddress.TabIndex = 26;
+            this.HexIPAddress.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.HexIPAddress.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // FirstOctetRange
@@ -294,6 +297,7 @@ namespace SubNetCalc
             this.FirstOctetRange.Name = "FirstOctetRange";
             this.FirstOctetRange.Size = new System.Drawing.Size(190, 20);
             this.FirstOctetRange.TabIndex = 27;
+            this.FirstOctetRange.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.FirstOctetRange.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
             // label15
@@ -330,6 +334,7 @@ namespace SubNetCalc
             this.SubnetID.Name = "SubnetID";
             this.SubnetID.Size = new System.Drawing.Size(190, 20);
             this.SubnetID.TabIndex = 33;
+            this.SubnetID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.SubnetID.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
             // 
             // BroadcastAddress
@@ -339,6 +344,7 @@ namespace SubNetCalc
             this.BroadcastAddress.Name = "BroadcastAddress";
             this.BroadcastAddress.Size = new System.Drawing.Size(190, 20);
             this.BroadcastAddress.TabIndex = 34;
+            this.BroadcastAddress.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.BroadcastAddress.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
             // 
             // HostAddresRange
@@ -348,6 +354,7 @@ namespace SubNetCalc
             this.HostAddresRange.Name = "HostAddresRange";
             this.HostAddresRange.Size = new System.Drawing.Size(444, 20);
             this.HostAddresRange.TabIndex = 35;
+            this.HostAddresRange.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.HostAddresRange.TextChanged += new System.EventHandler(this.textBox7_TextChanged);
             // 
             // label14
@@ -365,6 +372,7 @@ namespace SubNetCalc
             this.HostAddressRange.Name = "HostAddressRange";
             this.HostAddressRange.Size = new System.Drawing.Size(448, 20);
             this.HostAddressRange.TabIndex = 37;
+            this.HostAddressRange.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.HostAddressRange.TextChanged += new System.EventHandler(this.textBox8_TextChanged);
             // 
             // label18

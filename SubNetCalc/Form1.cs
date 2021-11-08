@@ -106,5 +106,10 @@ namespace SubNetCalc
         {
 
         }
+
+        private void IPAddress_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
