@@ -19,7 +19,7 @@ namespace SubNetCalc
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            radioButton1.Checked = true;
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -39,22 +39,22 @@ namespace SubNetCalc
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
-
+            FirstOctetRangeTextBox.Text = "1 - 126";
         }
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
-
+            FirstOctetRangeTextBox.Text = "128 - 191";
         }
 
         private void radioButton3_CheckedChanged(object sender, EventArgs e)
         {
-
+            FirstOctetRangeTextBox.Text = "192 - 223";
         }
 
         private void textBox4_TextChanged(object sender, EventArgs e)
         {
-
+            
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)

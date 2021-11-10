@@ -29,14 +29,14 @@ namespace SubNetCalc
         /// </summary>
         private void InitializeComponent()
         {
-            this.A = new System.Windows.Forms.RadioButton();
-            this.B = new System.Windows.Forms.RadioButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
-            this.C = new System.Windows.Forms.RadioButton();
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.IPAddress = new System.Windows.Forms.TextBox();
+            this.IPAddressTextBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.SubnetMask = new System.Windows.Forms.ComboBox();
@@ -53,7 +53,7 @@ namespace SubNetCalc
             this.label13 = new System.Windows.Forms.Label();
             this.WildcartMask = new System.Windows.Forms.TextBox();
             this.HexIPAddress = new System.Windows.Forms.TextBox();
-            this.FirstOctetRange = new System.Windows.Forms.TextBox();
+            this.FirstOctetRangeTextBox = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
@@ -65,27 +65,27 @@ namespace SubNetCalc
             this.label18 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // A
+            // radioButton1
             // 
-            this.A.AutoSize = true;
-            this.A.Location = new System.Drawing.Point(35, 59);
-            this.A.Name = "A";
-            this.A.Size = new System.Drawing.Size(14, 13);
-            this.A.TabIndex = 0;
-            this.A.TabStop = true;
-            this.A.UseVisualStyleBackColor = true;
-            this.A.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(35, 59);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(14, 13);
+            this.radioButton1.TabIndex = 0;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
-            // B
+            // radioButton2
             // 
-            this.B.AutoSize = true;
-            this.B.Location = new System.Drawing.Point(73, 59);
-            this.B.Name = "B";
-            this.B.Size = new System.Drawing.Size(14, 13);
-            this.B.TabIndex = 1;
-            this.B.TabStop = true;
-            this.B.UseVisualStyleBackColor = true;
-            this.B.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(73, 59);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(14, 13);
+            this.radioButton2.TabIndex = 1;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
             // 
             // label1
             // 
@@ -96,16 +96,16 @@ namespace SubNetCalc
             this.label1.TabIndex = 2;
             this.label1.Text = "Network Class";
             // 
-            // C
+            // radioButton3
             // 
-            this.C.AutoSize = true;
-            this.C.Location = new System.Drawing.Point(113, 59);
-            this.C.Name = "C";
-            this.C.Size = new System.Drawing.Size(14, 13);
-            this.C.TabIndex = 3;
-            this.C.TabStop = true;
-            this.C.UseVisualStyleBackColor = true;
-            this.C.CheckedChanged += new System.EventHandler(this.radioButton3_CheckedChanged);
+            this.radioButton3.AutoSize = true;
+            this.radioButton3.Location = new System.Drawing.Point(113, 59);
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.Size = new System.Drawing.Size(14, 13);
+            this.radioButton3.TabIndex = 3;
+            this.radioButton3.TabStop = true;
+            this.radioButton3.UseVisualStyleBackColor = true;
+            this.radioButton3.CheckedChanged += new System.EventHandler(this.radioButton3_CheckedChanged);
             // 
             // label2
             // 
@@ -135,13 +135,13 @@ namespace SubNetCalc
             this.label4.TabIndex = 6;
             this.label4.Text = "C";
             // 
-            // IPAddress
+            // IPAddressTextBox
             // 
-            this.IPAddress.Location = new System.Drawing.Point(18, 107);
-            this.IPAddress.Name = "IPAddress";
-            this.IPAddress.Size = new System.Drawing.Size(190, 20);
-            this.IPAddress.TabIndex = 7;
-            this.IPAddress.TextChanged += new System.EventHandler(this.IPAddress_TextChanged);
+            this.IPAddressTextBox.Location = new System.Drawing.Point(18, 107);
+            this.IPAddressTextBox.Name = "IPAddressTextBox";
+            this.IPAddressTextBox.Size = new System.Drawing.Size(190, 20);
+            this.IPAddressTextBox.TabIndex = 7;
+            this.IPAddressTextBox.TextChanged += new System.EventHandler(this.IPAddress_TextChanged);
             // 
             // label5
             // 
@@ -290,15 +290,15 @@ namespace SubNetCalc
             this.HexIPAddress.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.HexIPAddress.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
-            // FirstOctetRange
+            // FirstOctetRangeTextBox
             // 
-            this.FirstOctetRange.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.FirstOctetRange.Location = new System.Drawing.Point(270, 56);
-            this.FirstOctetRange.Name = "FirstOctetRange";
-            this.FirstOctetRange.Size = new System.Drawing.Size(190, 20);
-            this.FirstOctetRange.TabIndex = 27;
-            this.FirstOctetRange.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.FirstOctetRange.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
+            this.FirstOctetRangeTextBox.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.FirstOctetRangeTextBox.Location = new System.Drawing.Point(270, 56);
+            this.FirstOctetRangeTextBox.Name = "FirstOctetRangeTextBox";
+            this.FirstOctetRangeTextBox.Size = new System.Drawing.Size(190, 20);
+            this.FirstOctetRangeTextBox.TabIndex = 27;
+            this.FirstOctetRangeTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.FirstOctetRangeTextBox.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
             // label15
             // 
@@ -399,7 +399,7 @@ namespace SubNetCalc
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label17);
-            this.Controls.Add(this.FirstOctetRange);
+            this.Controls.Add(this.FirstOctetRangeTextBox);
             this.Controls.Add(this.HexIPAddress);
             this.Controls.Add(this.WildcartMask);
             this.Controls.Add(this.MaskBits);
@@ -416,14 +416,14 @@ namespace SubNetCalc
             this.Controls.Add(this.SubnetMask);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.IPAddress);
+            this.Controls.Add(this.IPAddressTextBox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.C);
+            this.Controls.Add(this.radioButton3);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.B);
-            this.Controls.Add(this.A);
+            this.Controls.Add(this.radioButton2);
+            this.Controls.Add(this.radioButton1);
             this.Name = "Form1";
             this.Text = "Subnet Calculator";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -434,14 +434,14 @@ namespace SubNetCalc
 
         #endregion
 
-        private System.Windows.Forms.RadioButton A;
-        private System.Windows.Forms.RadioButton B;
+        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.RadioButton C;
+        private System.Windows.Forms.RadioButton radioButton3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox IPAddress;
+        private System.Windows.Forms.TextBox IPAddressTextBox;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox SubnetMask;
@@ -458,7 +458,7 @@ namespace SubNetCalc
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox WildcartMask;
         private System.Windows.Forms.TextBox HexIPAddress;
-        private System.Windows.Forms.TextBox FirstOctetRange;
+        private System.Windows.Forms.TextBox FirstOctetRangeTextBox;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
