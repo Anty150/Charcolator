@@ -51,7 +51,7 @@ namespace SubNetCalc
             this.labelToHostsPerSubnet = new System.Windows.Forms.Label();
             this.comboBoxMaskBits = new System.Windows.Forms.ComboBox();
             this.labelToMaskBits = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxIpAdress = new System.Windows.Forms.TextBox();
             this.labelToIPAddress = new System.Windows.Forms.Label();
             this.textBoxHexIPAddress = new System.Windows.Forms.TextBox();
             this.labelToHexIPAddress = new System.Windows.Forms.Label();
@@ -80,6 +80,7 @@ namespace SubNetCalc
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "A";
             this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // radioButton2
             // 
@@ -91,6 +92,7 @@ namespace SubNetCalc
             this.radioButton2.TabStop = true;
             this.radioButton2.Text = "B";
             this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
             // 
             // radioButton3
             // 
@@ -102,6 +104,7 @@ namespace SubNetCalc
             this.radioButton3.TabStop = true;
             this.radioButton3.Text = "C";
             this.radioButton3.UseVisualStyleBackColor = true;
+            this.radioButton3.CheckedChanged += new System.EventHandler(this.radioButton3_CheckedChanged);
             // 
             // labelToWildcardMask
             // 
@@ -259,12 +262,13 @@ namespace SubNetCalc
             this.labelToMaskBits.TabIndex = 20;
             this.labelToMaskBits.Text = "Mask Bits";
             // 
-            // textBox1
+            // textBoxIpAdress
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 85);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(207, 20);
-            this.textBox1.TabIndex = 25;
+            this.textBoxIpAdress.Location = new System.Drawing.Point(12, 85);
+            this.textBoxIpAdress.Name = "textBoxIpAdress";
+            this.textBoxIpAdress.Size = new System.Drawing.Size(207, 20);
+            this.textBoxIpAdress.TabIndex = 25;
+            this.textBoxIpAdress.TextChanged += new System.EventHandler(this.textBoxIpAdress_TextChanged);
             // 
             // labelToIPAddress
             // 
@@ -301,6 +305,7 @@ namespace SubNetCalc
             this.textBoxFirstOctetRange.ReadOnly = true;
             this.textBoxFirstOctetRange.Size = new System.Drawing.Size(207, 20);
             this.textBoxFirstOctetRange.TabIndex = 29;
+            this.textBoxFirstOctetRange.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // labelToFirstOctetRange
             // 
@@ -331,6 +336,7 @@ namespace SubNetCalc
             // 
             // Form1
             // 
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.ClientSize = new System.Drawing.Size(509, 644);
             this.Controls.Add(this.textBoxBroadcastAddress);
@@ -339,7 +345,7 @@ namespace SubNetCalc
             this.Controls.Add(this.labelToFirstOctetRange);
             this.Controls.Add(this.textBoxHexIPAddress);
             this.Controls.Add(this.labelToHexIPAddress);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxIpAdress);
             this.Controls.Add(this.labelToIPAddress);
             this.Controls.Add(this.comboBoxHostsPerSubnet);
             this.Controls.Add(this.labelToHostsPerSubnet);
@@ -363,7 +369,10 @@ namespace SubNetCalc
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.labelRadioButtons);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Subnet Calculator";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
@@ -395,7 +404,7 @@ namespace SubNetCalc
         private System.Windows.Forms.Label labelToHostsPerSubnet;
         private System.Windows.Forms.ComboBox comboBoxMaskBits;
         private System.Windows.Forms.Label labelToMaskBits;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxIpAdress;
         private System.Windows.Forms.Label labelToIPAddress;
         private System.Windows.Forms.TextBox textBoxHexIPAddress;
         private System.Windows.Forms.Label labelToHexIPAddress;
