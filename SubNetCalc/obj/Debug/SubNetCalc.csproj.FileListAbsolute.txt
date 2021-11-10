@@ -38,3 +38,13 @@ C:\Users\Admin\Source\Repos\Anty150\Charcolator\SubNetCalc\obj\Debug\SubNetCalc.
 C:\Users\Admin\Source\Repos\Anty150\Charcolator\SubNetCalc\obj\Debug\SubNetCalc.csproj.CoreCompileInputs.cache
 C:\Users\Admin\Source\Repos\Anty150\Charcolator\SubNetCalc\obj\Debug\SubNetCalc.exe
 C:\Users\Admin\Source\Repos\Anty150\Charcolator\SubNetCalc\obj\Debug\SubNetCalc.pdb
+C:\Users\igor2\Source\Repos\Charcolator\SubNetCalc\bin\Debug\SubNetCalc.exe.config
+C:\Users\igor2\Source\Repos\Charcolator\SubNetCalc\bin\Debug\SubNetCalc.exe
+C:\Users\igor2\Source\Repos\Charcolator\SubNetCalc\bin\Debug\SubNetCalc.pdb
+C:\Users\igor2\Source\Repos\Charcolator\SubNetCalc\obj\Debug\SubNetCalc.csprojAssemblyReference.cache
+C:\Users\igor2\Source\Repos\Charcolator\SubNetCalc\obj\Debug\SubNetCalc.Form1.resources
+C:\Users\igor2\Source\Repos\Charcolator\SubNetCalc\obj\Debug\SubNetCalc.Properties.Resources.resources
+C:\Users\igor2\Source\Repos\Charcolator\SubNetCalc\obj\Debug\SubNetCalc.csproj.GenerateResource.cache
+C:\Users\igor2\Source\Repos\Charcolator\SubNetCalc\obj\Debug\SubNetCalc.csproj.CoreCompileInputs.cache
+C:\Users\igor2\Source\Repos\Charcolator\SubNetCalc\obj\Debug\SubNetCalc.exe
+C:\Users\igor2\Source\Repos\Charcolator\SubNetCalc\obj\Debug\SubNetCalc.pdb

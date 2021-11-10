@@ -31,7 +31,7 @@ namespace SubNetCalc
         {
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.label1 = new System.Windows.Forms.Label();
+            this.networkClassLabel = new System.Windows.Forms.Label();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -88,14 +88,15 @@ namespace SubNetCalc
             this.radioButton2.UseVisualStyleBackColor = true;
             this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
             // 
-            // label1
+            // networkClassLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(25, 33);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Network Class";
+            this.networkClassLabel.AutoSize = true;
+            this.networkClassLabel.Location = new System.Drawing.Point(25, 33);
+            this.networkClassLabel.Name = "networkClassLabel";
+            this.networkClassLabel.Size = new System.Drawing.Size(75, 13);
+            this.networkClassLabel.TabIndex = 2;
+            this.networkClassLabel.Text = "Network Class";
+            this.networkClassLabel.Click += new System.EventHandler(this.networkClassLabel_Click);
             // 
             // radioButton3
             // 
@@ -440,7 +441,7 @@ namespace SubNetCalc
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.radioButton3);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.networkClassLabel);
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
             this.Name = "Form1";
@@ -455,7 +456,7 @@ namespace SubNetCalc
 
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label networkClassLabel;
         private System.Windows.Forms.RadioButton radioButton3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;

@@ -15,7 +15,7 @@ namespace SubNetCalc
         string ipS1Value;
         string separator = ".";
         string[] ipS2Value;
-        int[] ipIValue, subnetId;
+        int[] ipIValue, subnetId, broadcast;
         
         public Form1()
         {
@@ -39,7 +39,7 @@ namespace SubNetCalc
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            workOnChange();
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
@@ -77,12 +77,12 @@ namespace SubNetCalc
 
         private void comboBox8_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            workOnChange();
         }
 
         private void comboBox5_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            workOnChange();
         }
 
         private void textBox7_TextChanged(object sender, EventArgs e)
@@ -107,17 +107,17 @@ namespace SubNetCalc
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            workOnChange();
         }
 
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            workOnChange();
         }
 
         private void IPAddress_TextChanged(object sender, EventArgs e)
         {
-
+            workOnChange();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -141,6 +141,45 @@ namespace SubNetCalc
             else
             {
                 
+            }
+        }
+
+        private void TestowyButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void networkClassLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void workOnChange()
+        {
+            ipS1Value = IPAddressTextBox.Text;
+            ipS2Value = ipS1Value.Split('.');
+            ipIValue = Array.ConvertAll(ipS2Value, int.Parse);
+
+            if (radioButton1.Checked == true)
+            {
+                subnetId = ipIValue;
+                subnetId[1] = 0;
+                subnetId[2] = 0;
+                subnetId[3] = 0;
+                SubnetIDTextBox.Text = string.Join(separator, subnetId).ToString();
+                broadcast = ipIValue;
+                broadcast[1] = 255;
+                broadcast[2] = 255;
+                broadcast[3] = 255;
+                BroadcastAddressTextBox.Text = string.Join(separator, broadcast).ToString();
+            }
+            else if (radioButton2.Checked == true)
+            {
+
+            }
+            else
+            {
+
             }
         }
     }
