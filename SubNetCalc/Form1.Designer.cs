@@ -39,29 +39,29 @@ namespace SubNetCalc
             this.IPAddressTextBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.SubnetMask = new System.Windows.Forms.ComboBox();
-            this.SubnetBits = new System.Windows.Forms.ComboBox();
+            this.SubnetMaskComboBox = new System.Windows.Forms.ComboBox();
+            this.SubnetBitsComboBox = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.MinimumSubnet = new System.Windows.Forms.ComboBox();
+            this.MinimumSubnetComboBox = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.HostPerSubnet = new System.Windows.Forms.ComboBox();
+            this.HostPerSubnetComboBox = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.MaskBits = new System.Windows.Forms.ComboBox();
+            this.MaskBitsComboBox = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.WildcartMask = new System.Windows.Forms.TextBox();
-            this.HexIPAddress = new System.Windows.Forms.TextBox();
+            this.WildcartMaskTextBox = new System.Windows.Forms.TextBox();
+            this.HexIPAddressTextBox = new System.Windows.Forms.TextBox();
             this.FirstOctetRangeTextBox = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.SubnetID = new System.Windows.Forms.TextBox();
-            this.BroadcastAddress = new System.Windows.Forms.TextBox();
-            this.HostAddresRange = new System.Windows.Forms.TextBox();
+            this.SubnetIDTextBox = new System.Windows.Forms.TextBox();
+            this.BroadcastAddressTextBox = new System.Windows.Forms.TextBox();
+            this.HostAddresRangeTextBox = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.HostAddressRange = new System.Windows.Forms.TextBox();
+            this.HostAddressRangeTextBox = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -162,23 +162,23 @@ namespace SubNetCalc
             this.label6.Text = "Subnet Mask";
             this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
-            // SubnetMask
+            // SubnetMaskComboBox
             // 
-            this.SubnetMask.FormattingEnabled = true;
-            this.SubnetMask.Location = new System.Drawing.Point(18, 159);
-            this.SubnetMask.Name = "SubnetMask";
-            this.SubnetMask.Size = new System.Drawing.Size(190, 21);
-            this.SubnetMask.TabIndex = 10;
-            this.SubnetMask.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.SubnetMaskComboBox.FormattingEnabled = true;
+            this.SubnetMaskComboBox.Location = new System.Drawing.Point(18, 159);
+            this.SubnetMaskComboBox.Name = "SubnetMaskComboBox";
+            this.SubnetMaskComboBox.Size = new System.Drawing.Size(190, 21);
+            this.SubnetMaskComboBox.TabIndex = 10;
+            this.SubnetMaskComboBox.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // SubnetBits
+            // SubnetBitsComboBox
             // 
-            this.SubnetBits.FormattingEnabled = true;
-            this.SubnetBits.Location = new System.Drawing.Point(16, 216);
-            this.SubnetBits.Name = "SubnetBits";
-            this.SubnetBits.Size = new System.Drawing.Size(190, 21);
-            this.SubnetBits.TabIndex = 12;
-            this.SubnetBits.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            this.SubnetBitsComboBox.FormattingEnabled = true;
+            this.SubnetBitsComboBox.Location = new System.Drawing.Point(16, 216);
+            this.SubnetBitsComboBox.Name = "SubnetBitsComboBox";
+            this.SubnetBitsComboBox.Size = new System.Drawing.Size(190, 21);
+            this.SubnetBitsComboBox.TabIndex = 12;
+            this.SubnetBitsComboBox.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // label7
             // 
@@ -189,14 +189,14 @@ namespace SubNetCalc
             this.label7.TabIndex = 11;
             this.label7.Text = "Subnet Bits";
             // 
-            // MinimumSubnet
+            // MinimumSubnetComboBox
             // 
-            this.MinimumSubnet.FormattingEnabled = true;
-            this.MinimumSubnet.Location = new System.Drawing.Point(16, 270);
-            this.MinimumSubnet.Name = "MinimumSubnet";
-            this.MinimumSubnet.Size = new System.Drawing.Size(190, 21);
-            this.MinimumSubnet.TabIndex = 14;
-            this.MinimumSubnet.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
+            this.MinimumSubnetComboBox.FormattingEnabled = true;
+            this.MinimumSubnetComboBox.Location = new System.Drawing.Point(16, 270);
+            this.MinimumSubnetComboBox.Name = "MinimumSubnetComboBox";
+            this.MinimumSubnetComboBox.Size = new System.Drawing.Size(190, 21);
+            this.MinimumSubnetComboBox.TabIndex = 14;
+            this.MinimumSubnetComboBox.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
             // 
             // label8
             // 
@@ -216,14 +216,14 @@ namespace SubNetCalc
             this.label9.TabIndex = 15;
             this.label9.Text = "First Octet Range";
             // 
-            // HostPerSubnet
+            // HostPerSubnetComboBox
             // 
-            this.HostPerSubnet.FormattingEnabled = true;
-            this.HostPerSubnet.Location = new System.Drawing.Point(270, 270);
-            this.HostPerSubnet.Name = "HostPerSubnet";
-            this.HostPerSubnet.Size = new System.Drawing.Size(190, 21);
-            this.HostPerSubnet.TabIndex = 18;
-            this.HostPerSubnet.SelectedIndexChanged += new System.EventHandler(this.comboBox5_SelectedIndexChanged);
+            this.HostPerSubnetComboBox.FormattingEnabled = true;
+            this.HostPerSubnetComboBox.Location = new System.Drawing.Point(270, 270);
+            this.HostPerSubnetComboBox.Name = "HostPerSubnetComboBox";
+            this.HostPerSubnetComboBox.Size = new System.Drawing.Size(190, 21);
+            this.HostPerSubnetComboBox.TabIndex = 18;
+            this.HostPerSubnetComboBox.SelectedIndexChanged += new System.EventHandler(this.comboBox5_SelectedIndexChanged);
             // 
             // label10
             // 
@@ -252,14 +252,14 @@ namespace SubNetCalc
             this.label12.TabIndex = 21;
             this.label12.Text = "Wildcard Mask";
             // 
-            // MaskBits
+            // MaskBitsComboBox
             // 
-            this.MaskBits.FormattingEnabled = true;
-            this.MaskBits.Location = new System.Drawing.Point(270, 216);
-            this.MaskBits.Name = "MaskBits";
-            this.MaskBits.Size = new System.Drawing.Size(190, 21);
-            this.MaskBits.TabIndex = 24;
-            this.MaskBits.SelectedIndexChanged += new System.EventHandler(this.comboBox8_SelectedIndexChanged);
+            this.MaskBitsComboBox.FormattingEnabled = true;
+            this.MaskBitsComboBox.Location = new System.Drawing.Point(270, 216);
+            this.MaskBitsComboBox.Name = "MaskBitsComboBox";
+            this.MaskBitsComboBox.Size = new System.Drawing.Size(190, 21);
+            this.MaskBitsComboBox.TabIndex = 24;
+            this.MaskBitsComboBox.SelectedIndexChanged += new System.EventHandler(this.comboBox8_SelectedIndexChanged);
             // 
             // label13
             // 
@@ -270,31 +270,34 @@ namespace SubNetCalc
             this.label13.TabIndex = 23;
             this.label13.Text = "Mask Bits";
             // 
-            // WildcartMask
+            // WildcartMaskTextBox
             // 
-            this.WildcartMask.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.WildcartMask.Location = new System.Drawing.Point(270, 160);
-            this.WildcartMask.Name = "WildcartMask";
-            this.WildcartMask.Size = new System.Drawing.Size(190, 20);
-            this.WildcartMask.TabIndex = 25;
-            this.WildcartMask.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.WildcartMask.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.WildcartMaskTextBox.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.WildcartMaskTextBox.Location = new System.Drawing.Point(270, 160);
+            this.WildcartMaskTextBox.Name = "WildcartMaskTextBox";
+            this.WildcartMaskTextBox.ReadOnly = true;
+            this.WildcartMaskTextBox.Size = new System.Drawing.Size(190, 20);
+            this.WildcartMaskTextBox.TabIndex = 25;
+            this.WildcartMaskTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.WildcartMaskTextBox.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
-            // HexIPAddress
+            // HexIPAddressTextBox
             // 
-            this.HexIPAddress.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.HexIPAddress.Location = new System.Drawing.Point(270, 107);
-            this.HexIPAddress.Name = "HexIPAddress";
-            this.HexIPAddress.Size = new System.Drawing.Size(190, 20);
-            this.HexIPAddress.TabIndex = 26;
-            this.HexIPAddress.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.HexIPAddress.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            this.HexIPAddressTextBox.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.HexIPAddressTextBox.Location = new System.Drawing.Point(270, 107);
+            this.HexIPAddressTextBox.Name = "HexIPAddressTextBox";
+            this.HexIPAddressTextBox.ReadOnly = true;
+            this.HexIPAddressTextBox.Size = new System.Drawing.Size(190, 20);
+            this.HexIPAddressTextBox.TabIndex = 26;
+            this.HexIPAddressTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.HexIPAddressTextBox.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // FirstOctetRangeTextBox
             // 
             this.FirstOctetRangeTextBox.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.FirstOctetRangeTextBox.Location = new System.Drawing.Point(270, 56);
             this.FirstOctetRangeTextBox.Name = "FirstOctetRangeTextBox";
+            this.FirstOctetRangeTextBox.ReadOnly = true;
             this.FirstOctetRangeTextBox.Size = new System.Drawing.Size(190, 20);
             this.FirstOctetRangeTextBox.TabIndex = 27;
             this.FirstOctetRangeTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -327,35 +330,38 @@ namespace SubNetCalc
             this.label17.TabIndex = 28;
             this.label17.Text = "Host Address Range";
             // 
-            // SubnetID
+            // SubnetIDTextBox
             // 
-            this.SubnetID.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.SubnetID.Location = new System.Drawing.Point(16, 377);
-            this.SubnetID.Name = "SubnetID";
-            this.SubnetID.Size = new System.Drawing.Size(190, 20);
-            this.SubnetID.TabIndex = 33;
-            this.SubnetID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.SubnetID.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
+            this.SubnetIDTextBox.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.SubnetIDTextBox.Location = new System.Drawing.Point(16, 377);
+            this.SubnetIDTextBox.Name = "SubnetIDTextBox";
+            this.SubnetIDTextBox.ReadOnly = true;
+            this.SubnetIDTextBox.Size = new System.Drawing.Size(190, 20);
+            this.SubnetIDTextBox.TabIndex = 33;
+            this.SubnetIDTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.SubnetIDTextBox.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
             // 
-            // BroadcastAddress
+            // BroadcastAddressTextBox
             // 
-            this.BroadcastAddress.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.BroadcastAddress.Location = new System.Drawing.Point(270, 377);
-            this.BroadcastAddress.Name = "BroadcastAddress";
-            this.BroadcastAddress.Size = new System.Drawing.Size(190, 20);
-            this.BroadcastAddress.TabIndex = 34;
-            this.BroadcastAddress.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.BroadcastAddress.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
+            this.BroadcastAddressTextBox.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.BroadcastAddressTextBox.Location = new System.Drawing.Point(270, 377);
+            this.BroadcastAddressTextBox.Name = "BroadcastAddressTextBox";
+            this.BroadcastAddressTextBox.ReadOnly = true;
+            this.BroadcastAddressTextBox.Size = new System.Drawing.Size(190, 20);
+            this.BroadcastAddressTextBox.TabIndex = 34;
+            this.BroadcastAddressTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.BroadcastAddressTextBox.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
             // 
-            // HostAddresRange
+            // HostAddresRangeTextBox
             // 
-            this.HostAddresRange.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.HostAddresRange.Location = new System.Drawing.Point(16, 323);
-            this.HostAddresRange.Name = "HostAddresRange";
-            this.HostAddresRange.Size = new System.Drawing.Size(444, 20);
-            this.HostAddresRange.TabIndex = 35;
-            this.HostAddresRange.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.HostAddresRange.TextChanged += new System.EventHandler(this.textBox7_TextChanged);
+            this.HostAddresRangeTextBox.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.HostAddresRangeTextBox.Location = new System.Drawing.Point(16, 323);
+            this.HostAddresRangeTextBox.Name = "HostAddresRangeTextBox";
+            this.HostAddresRangeTextBox.ReadOnly = true;
+            this.HostAddresRangeTextBox.Size = new System.Drawing.Size(444, 20);
+            this.HostAddresRangeTextBox.TabIndex = 35;
+            this.HostAddresRangeTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.HostAddresRangeTextBox.TextChanged += new System.EventHandler(this.textBox7_TextChanged);
             // 
             // label14
             // 
@@ -366,14 +372,15 @@ namespace SubNetCalc
             this.label14.TabIndex = 36;
             this.label14.Text = "Host Address Range";
             // 
-            // HostAddressRange
+            // HostAddressRangeTextBox
             // 
-            this.HostAddressRange.Location = new System.Drawing.Point(12, 428);
-            this.HostAddressRange.Name = "HostAddressRange";
-            this.HostAddressRange.Size = new System.Drawing.Size(448, 20);
-            this.HostAddressRange.TabIndex = 37;
-            this.HostAddressRange.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.HostAddressRange.TextChanged += new System.EventHandler(this.textBox8_TextChanged);
+            this.HostAddressRangeTextBox.Location = new System.Drawing.Point(12, 428);
+            this.HostAddressRangeTextBox.Name = "HostAddressRangeTextBox";
+            this.HostAddressRangeTextBox.ReadOnly = true;
+            this.HostAddressRangeTextBox.Size = new System.Drawing.Size(448, 20);
+            this.HostAddressRangeTextBox.TabIndex = 37;
+            this.HostAddressRangeTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.HostAddressRangeTextBox.TextChanged += new System.EventHandler(this.textBox8_TextChanged);
             // 
             // label18
             // 
@@ -391,29 +398,29 @@ namespace SubNetCalc
             this.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.ClientSize = new System.Drawing.Size(517, 509);
             this.Controls.Add(this.label18);
-            this.Controls.Add(this.HostAddressRange);
+            this.Controls.Add(this.HostAddressRangeTextBox);
             this.Controls.Add(this.label14);
-            this.Controls.Add(this.HostAddresRange);
-            this.Controls.Add(this.BroadcastAddress);
-            this.Controls.Add(this.SubnetID);
+            this.Controls.Add(this.HostAddresRangeTextBox);
+            this.Controls.Add(this.BroadcastAddressTextBox);
+            this.Controls.Add(this.SubnetIDTextBox);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.FirstOctetRangeTextBox);
-            this.Controls.Add(this.HexIPAddress);
-            this.Controls.Add(this.WildcartMask);
-            this.Controls.Add(this.MaskBits);
+            this.Controls.Add(this.HexIPAddressTextBox);
+            this.Controls.Add(this.WildcartMaskTextBox);
+            this.Controls.Add(this.MaskBitsComboBox);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.HostPerSubnet);
+            this.Controls.Add(this.HostPerSubnetComboBox);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.MinimumSubnet);
+            this.Controls.Add(this.MinimumSubnetComboBox);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.SubnetBits);
+            this.Controls.Add(this.SubnetBitsComboBox);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.SubnetMask);
+            this.Controls.Add(this.SubnetMaskComboBox);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.IPAddressTextBox);
@@ -444,29 +451,29 @@ namespace SubNetCalc
         private System.Windows.Forms.TextBox IPAddressTextBox;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox SubnetMask;
-        private System.Windows.Forms.ComboBox SubnetBits;
+        private System.Windows.Forms.ComboBox SubnetMaskComboBox;
+        private System.Windows.Forms.ComboBox SubnetBitsComboBox;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox MinimumSubnet;
+        private System.Windows.Forms.ComboBox MinimumSubnetComboBox;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ComboBox HostPerSubnet;
+        private System.Windows.Forms.ComboBox HostPerSubnetComboBox;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.ComboBox MaskBits;
+        private System.Windows.Forms.ComboBox MaskBitsComboBox;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox WildcartMask;
-        private System.Windows.Forms.TextBox HexIPAddress;
+        private System.Windows.Forms.TextBox WildcartMaskTextBox;
+        private System.Windows.Forms.TextBox HexIPAddressTextBox;
         private System.Windows.Forms.TextBox FirstOctetRangeTextBox;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.TextBox SubnetID;
-        private System.Windows.Forms.TextBox BroadcastAddress;
-        private System.Windows.Forms.TextBox HostAddresRange;
+        private System.Windows.Forms.TextBox SubnetIDTextBox;
+        private System.Windows.Forms.TextBox BroadcastAddressTextBox;
+        private System.Windows.Forms.TextBox HostAddresRangeTextBox;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox HostAddressRange;
+        private System.Windows.Forms.TextBox HostAddressRangeTextBox;
         private System.Windows.Forms.Label label18;
     }
 }
