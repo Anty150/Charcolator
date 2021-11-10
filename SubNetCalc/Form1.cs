@@ -12,6 +12,11 @@ namespace SubNetCalc
 {
     public partial class Form1 : Form
     {
+        string ipS1Value;
+        string separator = ".";
+        string[] ipS2Value;
+        int[] ipIValue, subnetId;
+        
         public Form1()
         {
             InitializeComponent();
@@ -40,16 +45,19 @@ namespace SubNetCalc
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
             FirstOctetRangeTextBox.Text = "1 - 126";
+            IPAddressTextBox.Text = "10.0.0.1";
         }
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
             FirstOctetRangeTextBox.Text = "128 - 191";
+            IPAddressTextBox.Text = "172.16.0.1";
         }
 
         private void radioButton3_CheckedChanged(object sender, EventArgs e)
         {
             FirstOctetRangeTextBox.Text = "192 - 223";
+            IPAddressTextBox.Text = "192.168.0.1";
         }
 
         private void textBox4_TextChanged(object sender, EventArgs e)
@@ -110,6 +118,30 @@ namespace SubNetCalc
         private void IPAddress_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ipS1Value = IPAddressTextBox.Text;
+            ipS2Value = ipS1Value.Split('.');
+            ipIValue = Array.ConvertAll(ipS2Value, int.Parse);
+
+            if (radioButton1.Checked == true)
+            {
+                subnetId = ipIValue;
+                subnetId[1] = 0;
+                subnetId[2] = 0;
+                subnetId[3] = 0;
+                SubnetIDTextBox.Text = string.Join(separator, subnetId).ToString();
+            }
+            else if(radioButton2.Checked == true)
+            {
+                
+            }
+            else
+            {
+                
+            }
         }
     }
 }
