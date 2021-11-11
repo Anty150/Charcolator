@@ -311,11 +311,15 @@ namespace SubNetCalc
             //Clearing Comboboxes
             clearSubnetBitsCombobox();
             clearSubnetMaskCombobox();
+            clearMinimumSubnetsCombobox();
 
             //Adding Options to Comboboxes
             createSubnetBitsOptions(radioButtonNumber);
             createSubnetMaskOptions(radioButtonNumber);
+            createMinimumSubnetsOptions(radioButtonNumber);
         }
+
+        #region Clearing Funtions
         public void clearSubnetMaskCombobox()
         {
             //Clears SubnetMaskCombobox when new radio button is pressed
@@ -326,6 +330,14 @@ namespace SubNetCalc
             //Clears SubnetMaskCombobox when new radio button is pressed
             comboBoxSubnetBits.Items.Clear();
         }
+        public void clearMinimumSubnetsCombobox()
+        {
+            //Clears SubnetMaskCombobox when new radio button is pressed
+            comboBoxMinimumSubnets.Items.Clear();
+        }
+        #endregion
+
+        #region Options creating funtions
         public void createSubnetMaskOptions(int radioButtonNumber)
         {
             switch (radioButtonNumber)
@@ -461,6 +473,74 @@ namespace SubNetCalc
             }
             comboBoxSubnetBits.SelectedIndex = 0;
         }
+        public void createMinimumSubnetsOptions(int radioButtonNumber)
+        {
+            switch(radioButtonNumber)
+            {
+                case 1:
+                    #region minimumComboSubnetsAddOptionsRadio1
+                    //Adding options to minimumSubnetsComboBox when Radio 1 pressed
+                    comboBoxMinimumSubnets.Items.Add("1");
+                    comboBoxMinimumSubnets.Items.Add("2");
+                    comboBoxMinimumSubnets.Items.Add("4");
+                    comboBoxMinimumSubnets.Items.Add("8");
+                    comboBoxMinimumSubnets.Items.Add("16");
+                    comboBoxMinimumSubnets.Items.Add("32");
+                    comboBoxMinimumSubnets.Items.Add("64");
+                    comboBoxMinimumSubnets.Items.Add("128");
+                    comboBoxMinimumSubnets.Items.Add("256");
+                    comboBoxMinimumSubnets.Items.Add("512");
+                    comboBoxMinimumSubnets.Items.Add("1024");
+                    comboBoxMinimumSubnets.Items.Add("2048");
+                    comboBoxMinimumSubnets.Items.Add("4096");
+                    comboBoxMinimumSubnets.Items.Add("8192");
+                    comboBoxMinimumSubnets.Items.Add("16384");
+                    comboBoxMinimumSubnets.Items.Add("32768");
+                    comboBoxMinimumSubnets.Items.Add("65536");
+                    comboBoxMinimumSubnets.Items.Add("131072");
+                    comboBoxMinimumSubnets.Items.Add("262144");
+                    comboBoxMinimumSubnets.Items.Add("524288");
+                    comboBoxMinimumSubnets.Items.Add("1048576");
+                    comboBoxMinimumSubnets.Items.Add("2097152");
+                    comboBoxMinimumSubnets.Items.Add("4194304");
+                    #endregion
+                    break;
+                case 2:
+                    #region minimumComboSubnetsAddOptionsRadio2
+                    //Adding options to minimumSubnetsComboBox when Radio 1 pressed
+                    comboBoxMinimumSubnets.Items.Add("1");
+                    comboBoxMinimumSubnets.Items.Add("2");
+                    comboBoxMinimumSubnets.Items.Add("4");
+                    comboBoxMinimumSubnets.Items.Add("8");
+                    comboBoxMinimumSubnets.Items.Add("16");
+                    comboBoxMinimumSubnets.Items.Add("32");
+                    comboBoxMinimumSubnets.Items.Add("64");
+                    comboBoxMinimumSubnets.Items.Add("128");
+                    comboBoxMinimumSubnets.Items.Add("256");
+                    comboBoxMinimumSubnets.Items.Add("512");
+                    comboBoxMinimumSubnets.Items.Add("1024");
+                    comboBoxMinimumSubnets.Items.Add("2048");
+                    comboBoxMinimumSubnets.Items.Add("4096");
+                    comboBoxMinimumSubnets.Items.Add("8192");
+                    comboBoxMinimumSubnets.Items.Add("16384");
+                    #endregion
+                    break;
+                case 3:
+                    #region minimumComboSubnetsAddOptionsRadio3
+                    //Adding options to minimumSubnetsComboBox when Radio 3 pressed
+                    comboBoxMinimumSubnets.Items.Add("1");
+                    comboBoxMinimumSubnets.Items.Add("2");
+                    comboBoxMinimumSubnets.Items.Add("4");
+                    comboBoxMinimumSubnets.Items.Add("8");
+                    comboBoxMinimumSubnets.Items.Add("16");
+                    comboBoxMinimumSubnets.Items.Add("32");
+                    comboBoxMinimumSubnets.Items.Add("64");
+                    #endregion
+                    break;
+            }
+            comboBoxMinimumSubnets.SelectedIndex = 0;
+        }
+        #endregion
         #endregion
         private void comboBoxSubnetBits_SelectedIndexChanged(object sender, EventArgs e)
         {

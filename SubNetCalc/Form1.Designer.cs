@@ -165,9 +165,9 @@ namespace SubNetCalc
             this.labelToMinimumSubnets.AutoSize = true;
             this.labelToMinimumSubnets.Location = new System.Drawing.Point(12, 234);
             this.labelToMinimumSubnets.Name = "labelToMinimumSubnets";
-            this.labelToMinimumSubnets.Size = new System.Drawing.Size(90, 13);
+            this.labelToMinimumSubnets.Size = new System.Drawing.Size(93, 13);
             this.labelToMinimumSubnets.TabIndex = 12;
-            this.labelToMinimumSubnets.Text = "Minimum Subnets";
+            this.labelToMinimumSubnets.Text = "Maximum Subnets";
             // 
             // comboBoxMinimumSubnets
             // 
