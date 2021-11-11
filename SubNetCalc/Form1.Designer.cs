@@ -158,6 +158,7 @@ namespace SubNetCalc
             this.comboBoxSubnetBits.Name = "comboBoxSubnetBits";
             this.comboBoxSubnetBits.Size = new System.Drawing.Size(207, 21);
             this.comboBoxSubnetBits.TabIndex = 11;
+            this.comboBoxSubnetBits.SelectedIndexChanged += new System.EventHandler(this.comboBoxSubnetBits_SelectedIndexChanged);
             // 
             // labelToMinimumSubnets
             // 

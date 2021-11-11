@@ -47,3 +47,4 @@ C:\Users\igor2\Source\Repos\Charcolator\SubNetCalc\obj\Debug\SubNetCalc.csproj.G
 C:\Users\igor2\Source\Repos\Charcolator\SubNetCalc\obj\Debug\SubNetCalc.csproj.CoreCompileInputs.cache
 C:\Users\igor2\Source\Repos\Charcolator\SubNetCalc\obj\Debug\SubNetCalc.exe
 C:\Users\igor2\Source\Repos\Charcolator\SubNetCalc\obj\Debug\SubNetCalc.pdb
+C:\Users\igor2\Source\Repos\Charcolator\SubNetCalc\obj\Debug\SubNetCalc.csprojAssemblyReference.cache
