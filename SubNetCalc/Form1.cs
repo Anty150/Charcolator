@@ -23,6 +23,9 @@ namespace SubNetCalc
         int[] broadcast = new int[4];
         int[] addressRange1 = new int[4];
         int[] addressRange2 = new int[4];
+        string[] IPs = new string[4];
+        int HexValue;
+        string HexText;
 
         public Form1()
         {
@@ -149,6 +152,30 @@ namespace SubNetCalc
             }
         }*/
 
+        private void IpToHex()
+        {
+            string str = "";
+            for (int i = 0; i < 4; i++)
+            {
+                HexValue = Convert.ToInt32(ipS2Value[i]);
+                HexText = Convert.ToString(HexValue, 16).ToUpper();
+                if (HexText.Length < 2)
+                {
+                    HexText = "0" + HexText;
+                }
+                Console.WriteLine(ipS2Value[i] + " " + HexText);
+                if (i != 3)
+                {
+                    str += HexText + ".";
+                }
+                else
+                {
+                    str += HexText;
+                }
+            }
+            textBoxHexIPAddress.Text = string.Join(".", str);
+        }
+
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
             createAndClearComboBoxes(1);
@@ -198,6 +225,7 @@ namespace SubNetCalc
                 {
                     subnetId = ipIValue;
                     broadcast = ipIValue;
+                    IPs = ipS2Value;
 
                     subnetId[1] = 0;
                     subnetId[2] = 0;
@@ -225,6 +253,7 @@ namespace SubNetCalc
                     textBoxBroadcastAddress.Text = String.Join(".", broadcastCopy);
                     textBoxHostAddressRange.Text = String.Join(".", addressRange1Copy) + " - " + String.Join(".", addressRange2Copy);
 
+                    IpToHex();
                 }
                 else
                 {
@@ -261,6 +290,8 @@ namespace SubNetCalc
                     textBoxSubnetID.Text = String.Join(".", subnetIdCopy);
                     textBoxBroadcastAddress.Text = String.Join(".", broadcastCopy);
                     textBoxHostAddressRange.Text = String.Join(".", addressRange1Copy) + " - " + String.Join(".", addressRange2Copy);
+
+                    IpToHex();
                 }
                 else
                 {
@@ -295,6 +326,8 @@ namespace SubNetCalc
                     textBoxSubnetID.Text = String.Join(".", subnetIdCopy);
                     textBoxBroadcastAddress.Text = String.Join(".", broadcastCopy);
                     textBoxHostAddressRange.Text = String.Join(".", addressRange1Copy) + " - " + String.Join(".", addressRange2Copy);
+
+                    IpToHex();
                 }
                 else
                 {
