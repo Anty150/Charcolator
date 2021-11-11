@@ -59,6 +59,7 @@ namespace SubNetCalc
             this.labelToFirstOctetRange = new System.Windows.Forms.Label();
             this.textBoxBroadcastAddress = new System.Windows.Forms.TextBox();
             this.labelToBroadcastAddress = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // labelRadioButtons
@@ -192,6 +193,7 @@ namespace SubNetCalc
             this.textBoxHostAddressRange.ReadOnly = true;
             this.textBoxHostAddressRange.Size = new System.Drawing.Size(485, 20);
             this.textBoxHostAddressRange.TabIndex = 15;
+            this.textBoxHostAddressRange.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // labelToSubnetID
             // 
@@ -210,6 +212,7 @@ namespace SubNetCalc
             this.textBoxSubnetID.ReadOnly = true;
             this.textBoxSubnetID.Size = new System.Drawing.Size(207, 20);
             this.textBoxSubnetID.TabIndex = 17;
+            this.textBoxSubnetID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // labelToSubnetBitmap
             // 
@@ -324,6 +327,7 @@ namespace SubNetCalc
             this.textBoxBroadcastAddress.ReadOnly = true;
             this.textBoxBroadcastAddress.Size = new System.Drawing.Size(207, 20);
             this.textBoxBroadcastAddress.TabIndex = 31;
+            this.textBoxBroadcastAddress.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // labelToBroadcastAddress
             // 
@@ -334,11 +338,22 @@ namespace SubNetCalc
             this.labelToBroadcastAddress.TabIndex = 30;
             this.labelToBroadcastAddress.Text = "Broadcast Address";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(238, 510);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 32;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.ClientSize = new System.Drawing.Size(509, 644);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.textBoxBroadcastAddress);
             this.Controls.Add(this.labelToBroadcastAddress);
             this.Controls.Add(this.textBoxFirstOctetRange);
@@ -412,6 +427,7 @@ namespace SubNetCalc
         private System.Windows.Forms.Label labelToFirstOctetRange;
         private System.Windows.Forms.TextBox textBoxBroadcastAddress;
         private System.Windows.Forms.Label labelToBroadcastAddress;
+        private System.Windows.Forms.Button button1;
     }
 }
 
