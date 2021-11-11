@@ -23,7 +23,6 @@ namespace SubNetCalc
         int[] broadcast = new int[4];
         int[] addressRange1 = new int[4];
         int[] addressRange2 = new int[4];
-        string[] IPs = new string[4];
         int HexValue;
         string HexText;
 
@@ -163,7 +162,6 @@ namespace SubNetCalc
                 {
                     HexText = "0" + HexText;
                 }
-                Console.WriteLine(ipS2Value[i] + " " + HexText);
                 if (i != 3)
                 {
                     str += HexText + ".";
@@ -225,7 +223,6 @@ namespace SubNetCalc
                 {
                     subnetId = ipIValue;
                     broadcast = ipIValue;
-                    IPs = ipS2Value;
 
                     subnetId[1] = 0;
                     subnetId[2] = 0;
