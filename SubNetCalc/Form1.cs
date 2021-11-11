@@ -151,6 +151,8 @@ namespace SubNetCalc
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
+            clearSubnetMaskCombobox();
+            createSubnetMaskOptions(1);
             textBoxFirstOctetRange.Text = "1 - 126";
             textBoxIpAdress.Text = "10.0.0.1";
             textBoxHostAddressRange.Text = "10.0.0.1 - 10.255.255.254";
@@ -161,6 +163,8 @@ namespace SubNetCalc
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
+            clearSubnetMaskCombobox();
+            createSubnetMaskOptions(2);
             textBoxFirstOctetRange.Text = "128 - 191";
             textBoxIpAdress.Text = "172.16.0.1";
             textBoxHostAddressRange.Text = "172.16.0.1 - 172.16.255.254";
@@ -171,6 +175,8 @@ namespace SubNetCalc
 
         private void radioButton3_CheckedChanged(object sender, EventArgs e)
         {
+            clearSubnetMaskCombobox();
+            createSubnetMaskOptions(3);
             textBoxFirstOctetRange.Text = "192 - 223";
             textBoxIpAdress.Text = "192.168.0.1";
             textBoxHostAddressRange.Text = "192.168.0.1 - 192.168.0.254";
@@ -298,6 +304,79 @@ namespace SubNetCalc
                     radioButton3.Checked = true;
                 }
             }
+        }
+        public void clearSubnetMaskCombobox()
+        {
+            //Clears SubnetMaskCombobox when new radio button is pressed
+            comboBoxSubnetMask.Items.Clear();
+        }
+        public void createSubnetMaskOptions(int radioButtonNumber)
+        {
+            switch (radioButtonNumber)
+            {
+                case 1:
+                    #region subnetComboMaskAddOptionsRadio1
+                    //Adding options to subnetMaskComboBox when Radio 1 pressed
+                    comboBoxSubnetMask.Items.Add("255.0.0.0");
+                    comboBoxSubnetMask.Items.Add("255.128.0.0");
+                    comboBoxSubnetMask.Items.Add("255.192.0.0");
+                    comboBoxSubnetMask.Items.Add("255.224.0.0");
+                    comboBoxSubnetMask.Items.Add("255.240.0.0");
+                    comboBoxSubnetMask.Items.Add("255.248.0.0");
+                    comboBoxSubnetMask.Items.Add("255.252.0.0");
+                    comboBoxSubnetMask.Items.Add("255.254.0.0");
+                    comboBoxSubnetMask.Items.Add("255.255.0.0");
+                    comboBoxSubnetMask.Items.Add("255.255.128.0");
+                    comboBoxSubnetMask.Items.Add("255.255.192.0");
+                    comboBoxSubnetMask.Items.Add("255.255.224.0");
+                    comboBoxSubnetMask.Items.Add("255.255.240.0");
+                    comboBoxSubnetMask.Items.Add("255.255.248.0");
+                    comboBoxSubnetMask.Items.Add("255.255.252.0");
+                    comboBoxSubnetMask.Items.Add("255.255.254.0");
+                    comboBoxSubnetMask.Items.Add("255.255.255.0");
+                    comboBoxSubnetMask.Items.Add("255.255.255.128");
+                    comboBoxSubnetMask.Items.Add("255.255.255.192");
+                    comboBoxSubnetMask.Items.Add("255.255.255.224");
+                    comboBoxSubnetMask.Items.Add("255.255.255.240");
+                    comboBoxSubnetMask.Items.Add("255.255.255.248");
+                    comboBoxSubnetMask.Items.Add("255.255.255.252");
+                    #endregion
+                    break;
+                case 2:
+                    #region subnetComboMaskAddOptionsRadio2
+                    //Adding options to subnetMaskComboBox when Radio 2 pressed
+                    comboBoxSubnetMask.Items.Add("255.255.0.0");
+                    comboBoxSubnetMask.Items.Add("255.255.128.0");
+                    comboBoxSubnetMask.Items.Add("255.255.192.0");
+                    comboBoxSubnetMask.Items.Add("255.255.224.0");
+                    comboBoxSubnetMask.Items.Add("255.255.240.0");
+                    comboBoxSubnetMask.Items.Add("255.255.248.0");
+                    comboBoxSubnetMask.Items.Add("255.255.252.0");
+                    comboBoxSubnetMask.Items.Add("255.255.254.0");
+                    comboBoxSubnetMask.Items.Add("255.255.255.0");
+                    comboBoxSubnetMask.Items.Add("255.255.255.128");
+                    comboBoxSubnetMask.Items.Add("255.255.255.192");
+                    comboBoxSubnetMask.Items.Add("255.255.255.224");
+                    comboBoxSubnetMask.Items.Add("255.255.255.240");
+                    comboBoxSubnetMask.Items.Add("255.255.255.248");
+                    comboBoxSubnetMask.Items.Add("255.255.255.252");
+                    #endregion
+                    break;
+                case 3:
+                    #region subnetComboMaskAddOptionsRadio3
+                    //Adding options to subnetMaskComboBox when Radio 3 pressed                   
+                    comboBoxSubnetMask.Items.Add("255.255.255.0");
+                    comboBoxSubnetMask.Items.Add("255.255.255.128");
+                    comboBoxSubnetMask.Items.Add("255.255.255.192");
+                    comboBoxSubnetMask.Items.Add("255.255.255.224");
+                    comboBoxSubnetMask.Items.Add("255.255.255.240");
+                    comboBoxSubnetMask.Items.Add("255.255.255.248");
+                    comboBoxSubnetMask.Items.Add("255.255.255.252");
+                    #endregion
+                    break;
+
+            }
+            comboBoxSubnetMask.SelectedIndex = 0;
         }
     }
 }
