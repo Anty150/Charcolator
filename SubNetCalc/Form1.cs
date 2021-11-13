@@ -171,7 +171,7 @@ namespace SubNetCalc
                     str += HexText;
                 }
             }
-            textBoxHexIPAddress.Text = string.Join(".", str);
+            textBoxHexIPAddress.Text = str;
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
@@ -342,11 +342,15 @@ namespace SubNetCalc
             clearSubnetBitsCombobox();
             clearSubnetMaskCombobox();
             clearMinimumSubnetsCombobox();
+            clearMaskBitsCombobox();
+            clearHostsPerSubnetComboBox();
 
             //Adding Options to Comboboxes
             createSubnetBitsOptions(radioButtonNumber);
             createSubnetMaskOptions(radioButtonNumber);
             createMinimumSubnetsOptions(radioButtonNumber);
+            createMaskBitsOptions(radioButtonNumber);
+            createHostsPerSubnetOptions(radioButtonNumber);
         }
 
         #region Clearing Funtions
@@ -364,6 +368,16 @@ namespace SubNetCalc
         {
             //Clears SubnetMaskCombobox when new radio button is pressed
             comboBoxMinimumSubnets.Items.Clear();
+        }
+        public void clearMaskBitsCombobox()
+        {
+            //Clears MaskBitsCombobox when new radio button is pressed
+            comboBoxMaskBits.Items.Clear();
+        }
+        public void clearHostsPerSubnetComboBox()
+        {
+            //Clears HostsPerSubnetComboBox when new radio button is pressed
+            comboBoxHostsPerSubnet.Items.Clear();
         }
         #endregion
 
@@ -569,6 +583,142 @@ namespace SubNetCalc
                     break;
             }
             comboBoxMinimumSubnets.SelectedIndex = 0;
+        }
+
+        public void createMaskBitsOptions(int radioButtonNumber)
+        {
+            switch (radioButtonNumber)
+            {
+                case 1:
+                    #region MaskBitsOptionsRadio1
+                    //Adding options to comboBoxMaskBits when Radio 1 pressed
+                    comboBoxMaskBits.Items.Add("8");
+                    comboBoxMaskBits.Items.Add("9");
+                    comboBoxMaskBits.Items.Add("10");
+                    comboBoxMaskBits.Items.Add("11");
+                    comboBoxMaskBits.Items.Add("12");
+                    comboBoxMaskBits.Items.Add("13");
+                    comboBoxMaskBits.Items.Add("14");
+                    comboBoxMaskBits.Items.Add("15");
+                    comboBoxMaskBits.Items.Add("16");
+                    comboBoxMaskBits.Items.Add("17");
+                    comboBoxMaskBits.Items.Add("18");
+                    comboBoxMaskBits.Items.Add("19");
+                    comboBoxMaskBits.Items.Add("20");
+                    comboBoxMaskBits.Items.Add("21");
+                    comboBoxMaskBits.Items.Add("22");
+                    comboBoxMaskBits.Items.Add("23");
+                    comboBoxMaskBits.Items.Add("24");
+                    comboBoxMaskBits.Items.Add("25");
+                    comboBoxMaskBits.Items.Add("26");
+                    comboBoxMaskBits.Items.Add("27");
+                    comboBoxMaskBits.Items.Add("28");
+                    comboBoxMaskBits.Items.Add("29");
+                    comboBoxMaskBits.Items.Add("30");
+                    #endregion
+                    break;
+                case 2:
+                    #region MaskBitsOptionsRadio2
+                    //Adding options to comboBoxMaskBits when Radio 1 pressed
+                    comboBoxMaskBits.Items.Add("16");
+                    comboBoxMaskBits.Items.Add("17");
+                    comboBoxMaskBits.Items.Add("18");
+                    comboBoxMaskBits.Items.Add("19");
+                    comboBoxMaskBits.Items.Add("20");
+                    comboBoxMaskBits.Items.Add("21");
+                    comboBoxMaskBits.Items.Add("22");
+                    comboBoxMaskBits.Items.Add("23");
+                    comboBoxMaskBits.Items.Add("24");
+                    comboBoxMaskBits.Items.Add("25");
+                    comboBoxMaskBits.Items.Add("26");
+                    comboBoxMaskBits.Items.Add("27");
+                    comboBoxMaskBits.Items.Add("28");
+                    comboBoxMaskBits.Items.Add("29");
+                    comboBoxMaskBits.Items.Add("30");
+                    #endregion
+                    break;
+                case 3:
+                    #region MaskBitsOptionsRadio3
+                    //Adding options to comboBoxMaskBits when Radio 3 pressed
+                    comboBoxMaskBits.Items.Add("24");
+                    comboBoxMaskBits.Items.Add("25");
+                    comboBoxMaskBits.Items.Add("26");
+                    comboBoxMaskBits.Items.Add("27");
+                    comboBoxMaskBits.Items.Add("28");
+                    comboBoxMaskBits.Items.Add("29");
+                    comboBoxMaskBits.Items.Add("30");
+                    #endregion
+                    break;
+            }
+            comboBoxMaskBits.SelectedIndex = 0;
+        }
+
+        public void createHostsPerSubnetOptions(int radioButtonNumber)
+        {
+            switch (radioButtonNumber)
+            {
+                case 1:
+                    #region HostsperSubnetRadio1
+                    //Adding options to comboBoxHostsPerSubnet when Radio 1 pressed
+                    comboBoxHostsPerSubnet.Items.Add("16777214");
+                    comboBoxHostsPerSubnet.Items.Add("8388606");
+                    comboBoxHostsPerSubnet.Items.Add("4194302");
+                    comboBoxHostsPerSubnet.Items.Add("2097150");
+                    comboBoxHostsPerSubnet.Items.Add("1048574");
+                    comboBoxHostsPerSubnet.Items.Add("524286");
+                    comboBoxHostsPerSubnet.Items.Add("262142");
+                    comboBoxHostsPerSubnet.Items.Add("131070");
+                    comboBoxHostsPerSubnet.Items.Add("65534");
+                    comboBoxHostsPerSubnet.Items.Add("32766");
+                    comboBoxHostsPerSubnet.Items.Add("16382");
+                    comboBoxHostsPerSubnet.Items.Add("8190");
+                    comboBoxHostsPerSubnet.Items.Add("4094");
+                    comboBoxHostsPerSubnet.Items.Add("2046");
+                    comboBoxHostsPerSubnet.Items.Add("1022");
+                    comboBoxHostsPerSubnet.Items.Add("510");
+                    comboBoxHostsPerSubnet.Items.Add("254");
+                    comboBoxHostsPerSubnet.Items.Add("126");
+                    comboBoxHostsPerSubnet.Items.Add("62");
+                    comboBoxHostsPerSubnet.Items.Add("30");
+                    comboBoxHostsPerSubnet.Items.Add("14");
+                    comboBoxHostsPerSubnet.Items.Add("6");
+                    comboBoxHostsPerSubnet.Items.Add("2");
+                    #endregion
+                    break;
+                case 2:
+                    #region HostsperSubnetRadio2
+                    //Adding options to comboBoxHostsPerSubnet when Radio 1 pressed
+                    comboBoxHostsPerSubnet.Items.Add("65534");
+                    comboBoxHostsPerSubnet.Items.Add("32766");
+                    comboBoxHostsPerSubnet.Items.Add("16382");
+                    comboBoxHostsPerSubnet.Items.Add("8190");
+                    comboBoxHostsPerSubnet.Items.Add("4094");
+                    comboBoxHostsPerSubnet.Items.Add("2046");
+                    comboBoxHostsPerSubnet.Items.Add("1022");
+                    comboBoxHostsPerSubnet.Items.Add("510");
+                    comboBoxHostsPerSubnet.Items.Add("254");
+                    comboBoxHostsPerSubnet.Items.Add("126");
+                    comboBoxHostsPerSubnet.Items.Add("62");
+                    comboBoxHostsPerSubnet.Items.Add("30");
+                    comboBoxHostsPerSubnet.Items.Add("14");
+                    comboBoxHostsPerSubnet.Items.Add("6");
+                    comboBoxHostsPerSubnet.Items.Add("2");
+                    #endregion
+                    break;
+                case 3:
+                    #region HostsperSubnetRadio3
+                    //Adding options to comboBoxHostsPerSubnet when Radio 3 pressed
+                    comboBoxHostsPerSubnet.Items.Add("254");
+                    comboBoxHostsPerSubnet.Items.Add("126");
+                    comboBoxHostsPerSubnet.Items.Add("62");
+                    comboBoxHostsPerSubnet.Items.Add("30");
+                    comboBoxHostsPerSubnet.Items.Add("14");
+                    comboBoxHostsPerSubnet.Items.Add("6");
+                    comboBoxHostsPerSubnet.Items.Add("2");
+                    #endregion
+                    break;
+            }
+            comboBoxHostsPerSubnet.SelectedIndex = 0;
         }
         #endregion
         #endregion

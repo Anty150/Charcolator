@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\SubNetCalc"
   ],
-  "SelectedNode": "\\SubNetCalc.sln",
+  "SelectedNode": "\\SubNetCalc\\Form1.cs",
   "PreviewInSolutionExplorer": false
 }
