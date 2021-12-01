@@ -150,6 +150,7 @@ namespace SubNetCalc
             this.comboBoxSubnetMask.Name = "comboBoxSubnetMask";
             this.comboBoxSubnetMask.Size = new System.Drawing.Size(207, 21);
             this.comboBoxSubnetMask.TabIndex = 10;
+            this.comboBoxSubnetMask.SelectedIndexChanged += new System.EventHandler(this.comboBoxSubnetMask_SelectedIndexChanged);
             // 
             // comboBoxSubnetBits
             // 
@@ -176,6 +177,7 @@ namespace SubNetCalc
             this.comboBoxMinimumSubnets.Name = "comboBoxMinimumSubnets";
             this.comboBoxMinimumSubnets.Size = new System.Drawing.Size(207, 21);
             this.comboBoxMinimumSubnets.TabIndex = 13;
+            this.comboBoxMinimumSubnets.SelectedIndexChanged += new System.EventHandler(this.comboBoxMinimumSubnets_SelectedIndexChanged);
             // 
             // labelHostAddressRange
             // 
@@ -239,6 +241,7 @@ namespace SubNetCalc
             this.comboBoxHostsPerSubnet.Name = "comboBoxHostsPerSubnet";
             this.comboBoxHostsPerSubnet.Size = new System.Drawing.Size(207, 21);
             this.comboBoxHostsPerSubnet.TabIndex = 23;
+            this.comboBoxHostsPerSubnet.SelectedIndexChanged += new System.EventHandler(this.comboBoxHostsPerSubnet_SelectedIndexChanged);
             // 
             // labelToHostsPerSubnet
             // 
@@ -256,6 +259,7 @@ namespace SubNetCalc
             this.comboBoxMaskBits.Name = "comboBoxMaskBits";
             this.comboBoxMaskBits.Size = new System.Drawing.Size(207, 21);
             this.comboBoxMaskBits.TabIndex = 21;
+            this.comboBoxMaskBits.SelectedIndexChanged += new System.EventHandler(this.comboBoxMaskBits_SelectedIndexChanged);
             // 
             // labelToMaskBits
             // 

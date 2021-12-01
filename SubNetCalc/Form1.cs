@@ -26,6 +26,7 @@ namespace SubNetCalc
         int HexValue;
         string HexText;
 
+        bool isLoaded = false;
         public Form1()
         {
             InitializeComponent();
@@ -33,6 +34,7 @@ namespace SubNetCalc
         private void Form1_Load(object sender, EventArgs e)
         {
             radioButton1.Checked = true;
+            isLoaded = true;
         }
 
         /*private void workOnChange()
@@ -176,34 +178,40 @@ namespace SubNetCalc
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
-            createAndClearComboBoxes(1);
             textBoxFirstOctetRange.Text = "1 - 126";
             textBoxIpAdress.Text = "10.0.0.1";
             textBoxHostAddressRange.Text = "10.0.0.1 - 10.255.255.254";
             textBoxSubnetID.Text = "10.0.0.0";
             textBoxBroadcastAddress.Text = "10.255.255.255";
+
+            isLoaded = false;
+            createAndClearComboBoxes(1, ref isLoaded);
             //workOnChange();
         }
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
-            createAndClearComboBoxes(2);
             textBoxFirstOctetRange.Text = "128 - 191";
             textBoxIpAdress.Text = "172.16.0.1";
             textBoxHostAddressRange.Text = "172.16.0.1 - 172.16.255.254";
             textBoxSubnetID.Text = "172.16.0.0";
             textBoxBroadcastAddress.Text = "172.16.255.255";
+
+            isLoaded = false;
+            createAndClearComboBoxes(2, ref isLoaded);
             //workOnChange();
         }
 
         private void radioButton3_CheckedChanged(object sender, EventArgs e)
         {
-            createAndClearComboBoxes(3);
             textBoxFirstOctetRange.Text = "192 - 223";
             textBoxIpAdress.Text = "192.168.0.1";
             textBoxHostAddressRange.Text = "192.168.0.1 - 192.168.0.254";
             textBoxSubnetID.Text = "192.168.0.0";
             textBoxBroadcastAddress.Text = "192.168.0.255";
+
+            isLoaded = false;
+            createAndClearComboBoxes(3, ref isLoaded);
             //workOnChange();
         }
 
@@ -334,7 +342,7 @@ namespace SubNetCalc
         }
         #region CreatingAndClearingComboBoxes Funtions
         //Funtions used to create and Clear Comboboxes when radio button is pressed
-        public void createAndClearComboBoxes(int radioButtonNumber)
+        public void createAndClearComboBoxes(int radioButtonNumber, ref bool isLoaded)
         {
             //Function used to clear and then create all comboBoxes
 
@@ -351,6 +359,9 @@ namespace SubNetCalc
             createMinimumSubnetsOptions(radioButtonNumber);
             createMaskBitsOptions(radioButtonNumber);
             createHostsPerSubnetOptions(radioButtonNumber);
+
+            //Informing that Comboboxes were succesfully created
+            isLoaded = true;
         }
 
         #region Clearing Funtions
@@ -452,66 +463,33 @@ namespace SubNetCalc
         }
         public void createSubnetBitsOptions(int radioButtonNumber)
         {
-            switch(radioButtonNumber)
+            switch (radioButtonNumber)
             {
                 case 1:
                     #region subnetComboBitsAddOptionsRadio1
                     //Adding options to subnetBitsComboBox when Radio 1 pressed
-                    comboBoxSubnetBits.Items.Add("0");
-                    comboBoxSubnetBits.Items.Add("1");
-                    comboBoxSubnetBits.Items.Add("2");
-                    comboBoxSubnetBits.Items.Add("3");
-                    comboBoxSubnetBits.Items.Add("4");
-                    comboBoxSubnetBits.Items.Add("5");
-                    comboBoxSubnetBits.Items.Add("6");
-                    comboBoxSubnetBits.Items.Add("7");
-                    comboBoxSubnetBits.Items.Add("8");
-                    comboBoxSubnetBits.Items.Add("9");
-                    comboBoxSubnetBits.Items.Add("10");
-                    comboBoxSubnetBits.Items.Add("11");
-                    comboBoxSubnetBits.Items.Add("12");
-                    comboBoxSubnetBits.Items.Add("13");
-                    comboBoxSubnetBits.Items.Add("14");
-                    comboBoxSubnetBits.Items.Add("15");
-                    comboBoxSubnetBits.Items.Add("16");
-                    comboBoxSubnetBits.Items.Add("17");
-                    comboBoxSubnetBits.Items.Add("18");
-                    comboBoxSubnetBits.Items.Add("19");
-                    comboBoxSubnetBits.Items.Add("20");
-                    comboBoxSubnetBits.Items.Add("21");
-                    comboBoxSubnetBits.Items.Add("22");
+                    for (int i = 0; i <= 22; i++)
+                    {
+                        comboBoxSubnetBits.Items.Add(i);
+                    }
                     #endregion
                     break;
                 case 2:
                     #region subnetComboBitsAddOptionsRadio2
                     //Adding options to subnetBitsComboBox when Radio 2 pressed
-                    comboBoxSubnetBits.Items.Add("0");
-                    comboBoxSubnetBits.Items.Add("1");
-                    comboBoxSubnetBits.Items.Add("2");
-                    comboBoxSubnetBits.Items.Add("3");
-                    comboBoxSubnetBits.Items.Add("4");
-                    comboBoxSubnetBits.Items.Add("5");
-                    comboBoxSubnetBits.Items.Add("6");
-                    comboBoxSubnetBits.Items.Add("7");
-                    comboBoxSubnetBits.Items.Add("8");
-                    comboBoxSubnetBits.Items.Add("9");
-                    comboBoxSubnetBits.Items.Add("10");
-                    comboBoxSubnetBits.Items.Add("11");
-                    comboBoxSubnetBits.Items.Add("12");
-                    comboBoxSubnetBits.Items.Add("13");
-                    comboBoxSubnetBits.Items.Add("14");
+                    for (int i = 0; i <= 14; i++)
+                    {
+                        comboBoxSubnetBits.Items.Add(i);
+                    }
                     #endregion
                     break;
                 case 3:
                     #region subnetComboBitsAddOptionsRadio3
                     //Adding options to subnetBitsComboBox when Radio 3 pressed
-                    comboBoxSubnetBits.Items.Add("0");
-                    comboBoxSubnetBits.Items.Add("1");
-                    comboBoxSubnetBits.Items.Add("2");
-                    comboBoxSubnetBits.Items.Add("3");
-                    comboBoxSubnetBits.Items.Add("4");
-                    comboBoxSubnetBits.Items.Add("5");
-                    comboBoxSubnetBits.Items.Add("6");                   
+                    for (int i = 0; i <= 6; i++)
+                    {
+                        comboBoxSubnetBits.Items.Add(i);
+                    }
                     #endregion
                     break;
             }
@@ -722,9 +700,53 @@ namespace SubNetCalc
         }
         #endregion
         #endregion
+
+        #region FuntionsChangingComboBoxesIndexesOnIndexChange
+        //Functions to make all comboBoxesIndexes same
+
+        #region SelectedIndexChanged functions
         private void comboBoxSubnetBits_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            int selectedIndex = comboBoxSubnetBits.SelectedIndex;
+            changeComboBoxIndex(selectedIndex);
         }
+
+        private void comboBoxSubnetMask_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int selectedIndex = comboBoxSubnetMask.SelectedIndex;
+            changeComboBoxIndex(selectedIndex);
+        }
+
+        private void comboBoxMinimumSubnets_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int selectedIndex = comboBoxMinimumSubnets.SelectedIndex;
+            changeComboBoxIndex(selectedIndex);
+        }
+
+        private void comboBoxMaskBits_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int selectedIndex = comboBoxMaskBits.SelectedIndex;
+            changeComboBoxIndex(selectedIndex);
+        }
+
+        private void comboBoxHostsPerSubnet_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int selectedIndex = comboBoxHostsPerSubnet.SelectedIndex;
+            changeComboBoxIndex(selectedIndex);
+        }
+        #endregion
+
+        public void changeComboBoxIndex(int selectedIndex)
+        {
+            if(isLoaded)
+            {
+                comboBoxSubnetBits.SelectedIndex = selectedIndex;
+                comboBoxSubnetMask.SelectedIndex = selectedIndex;
+                comboBoxMinimumSubnets.SelectedIndex = selectedIndex;
+                comboBoxMaskBits.SelectedIndex = selectedIndex;
+                comboBoxHostsPerSubnet.SelectedIndex = selectedIndex;
+            }
+        }   
     }
+    #endregion
 }
