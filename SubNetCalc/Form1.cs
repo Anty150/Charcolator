@@ -495,6 +495,7 @@ namespace SubNetCalc
             }
             comboBoxSubnetBits.SelectedIndex = 0;
         }
+
         public void createMinimumSubnetsOptions(int radioButtonNumber)
         {
             switch(radioButtonNumber)
@@ -502,61 +503,28 @@ namespace SubNetCalc
                 case 1:
                     #region minimumComboSubnetsAddOptionsRadio1
                     //Adding options to minimumSubnetsComboBox when Radio 1 pressed
-                    comboBoxMinimumSubnets.Items.Add("1");
-                    comboBoxMinimumSubnets.Items.Add("2");
-                    comboBoxMinimumSubnets.Items.Add("4");
-                    comboBoxMinimumSubnets.Items.Add("8");
-                    comboBoxMinimumSubnets.Items.Add("16");
-                    comboBoxMinimumSubnets.Items.Add("32");
-                    comboBoxMinimumSubnets.Items.Add("64");
-                    comboBoxMinimumSubnets.Items.Add("128");
-                    comboBoxMinimumSubnets.Items.Add("256");
-                    comboBoxMinimumSubnets.Items.Add("512");
-                    comboBoxMinimumSubnets.Items.Add("1024");
-                    comboBoxMinimumSubnets.Items.Add("2048");
-                    comboBoxMinimumSubnets.Items.Add("4096");
-                    comboBoxMinimumSubnets.Items.Add("8192");
-                    comboBoxMinimumSubnets.Items.Add("16384");
-                    comboBoxMinimumSubnets.Items.Add("32768");
-                    comboBoxMinimumSubnets.Items.Add("65536");
-                    comboBoxMinimumSubnets.Items.Add("131072");
-                    comboBoxMinimumSubnets.Items.Add("262144");
-                    comboBoxMinimumSubnets.Items.Add("524288");
-                    comboBoxMinimumSubnets.Items.Add("1048576");
-                    comboBoxMinimumSubnets.Items.Add("2097152");
-                    comboBoxMinimumSubnets.Items.Add("4194304");
+                    for (int i = 0; i <= 22; i++)
+                    {
+                        comboBoxMinimumSubnets.Items.Add(Math.Pow(2, i));
+                    }
                     #endregion
                     break;
                 case 2:
                     #region minimumComboSubnetsAddOptionsRadio2
                     //Adding options to minimumSubnetsComboBox when Radio 1 pressed
-                    comboBoxMinimumSubnets.Items.Add("1");
-                    comboBoxMinimumSubnets.Items.Add("2");
-                    comboBoxMinimumSubnets.Items.Add("4");
-                    comboBoxMinimumSubnets.Items.Add("8");
-                    comboBoxMinimumSubnets.Items.Add("16");
-                    comboBoxMinimumSubnets.Items.Add("32");
-                    comboBoxMinimumSubnets.Items.Add("64");
-                    comboBoxMinimumSubnets.Items.Add("128");
-                    comboBoxMinimumSubnets.Items.Add("256");
-                    comboBoxMinimumSubnets.Items.Add("512");
-                    comboBoxMinimumSubnets.Items.Add("1024");
-                    comboBoxMinimumSubnets.Items.Add("2048");
-                    comboBoxMinimumSubnets.Items.Add("4096");
-                    comboBoxMinimumSubnets.Items.Add("8192");
-                    comboBoxMinimumSubnets.Items.Add("16384");
+                    for (int i = 0; i <= 14; i++)
+                    {
+                        comboBoxMinimumSubnets.Items.Add(Math.Pow(2, i));
+                    }
                     #endregion
                     break;
                 case 3:
                     #region minimumComboSubnetsAddOptionsRadio3
                     //Adding options to minimumSubnetsComboBox when Radio 3 pressed
-                    comboBoxMinimumSubnets.Items.Add("1");
-                    comboBoxMinimumSubnets.Items.Add("2");
-                    comboBoxMinimumSubnets.Items.Add("4");
-                    comboBoxMinimumSubnets.Items.Add("8");
-                    comboBoxMinimumSubnets.Items.Add("16");
-                    comboBoxMinimumSubnets.Items.Add("32");
-                    comboBoxMinimumSubnets.Items.Add("64");
+                    for (int i = 0; i <= 6; i++)
+                    {
+                        comboBoxMinimumSubnets.Items.Add(Math.Pow(2, i));
+                    }
                     #endregion
                     break;
             }
@@ -570,65 +538,32 @@ namespace SubNetCalc
                 case 1:
                     #region MaskBitsOptionsRadio1
                     //Adding options to comboBoxMaskBits when Radio 1 pressed
-                    comboBoxMaskBits.Items.Add("8");
-                    comboBoxMaskBits.Items.Add("9");
-                    comboBoxMaskBits.Items.Add("10");
-                    comboBoxMaskBits.Items.Add("11");
-                    comboBoxMaskBits.Items.Add("12");
-                    comboBoxMaskBits.Items.Add("13");
-                    comboBoxMaskBits.Items.Add("14");
-                    comboBoxMaskBits.Items.Add("15");
-                    comboBoxMaskBits.Items.Add("16");
-                    comboBoxMaskBits.Items.Add("17");
-                    comboBoxMaskBits.Items.Add("18");
-                    comboBoxMaskBits.Items.Add("19");
-                    comboBoxMaskBits.Items.Add("20");
-                    comboBoxMaskBits.Items.Add("21");
-                    comboBoxMaskBits.Items.Add("22");
-                    comboBoxMaskBits.Items.Add("23");
-                    comboBoxMaskBits.Items.Add("24");
-                    comboBoxMaskBits.Items.Add("25");
-                    comboBoxMaskBits.Items.Add("26");
-                    comboBoxMaskBits.Items.Add("27");
-                    comboBoxMaskBits.Items.Add("28");
-                    comboBoxMaskBits.Items.Add("29");
-                    comboBoxMaskBits.Items.Add("30");
+                    for (int i = 0; i <= 22; i++)
+                    {
+                        comboBoxMaskBits.Items.Add(i + 8);
+                    }
                     #endregion
                     break;
                 case 2:
                     #region MaskBitsOptionsRadio2
                     //Adding options to comboBoxMaskBits when Radio 1 pressed
-                    comboBoxMaskBits.Items.Add("16");
-                    comboBoxMaskBits.Items.Add("17");
-                    comboBoxMaskBits.Items.Add("18");
-                    comboBoxMaskBits.Items.Add("19");
-                    comboBoxMaskBits.Items.Add("20");
-                    comboBoxMaskBits.Items.Add("21");
-                    comboBoxMaskBits.Items.Add("22");
-                    comboBoxMaskBits.Items.Add("23");
-                    comboBoxMaskBits.Items.Add("24");
-                    comboBoxMaskBits.Items.Add("25");
-                    comboBoxMaskBits.Items.Add("26");
-                    comboBoxMaskBits.Items.Add("27");
-                    comboBoxMaskBits.Items.Add("28");
-                    comboBoxMaskBits.Items.Add("29");
-                    comboBoxMaskBits.Items.Add("30");
+                    for (int i = 0; i <= 14; i++)
+                    {
+                        comboBoxMaskBits.Items.Add(i + 16);
+                    }
                     #endregion
                     break;
                 case 3:
                     #region MaskBitsOptionsRadio3
                     //Adding options to comboBoxMaskBits when Radio 3 pressed
-                    comboBoxMaskBits.Items.Add("24");
-                    comboBoxMaskBits.Items.Add("25");
-                    comboBoxMaskBits.Items.Add("26");
-                    comboBoxMaskBits.Items.Add("27");
-                    comboBoxMaskBits.Items.Add("28");
-                    comboBoxMaskBits.Items.Add("29");
-                    comboBoxMaskBits.Items.Add("30");
+                    for (int i = 0; i <= 6; i++)
+                    {
+                        comboBoxMaskBits.Items.Add(i + 24);
+                    }
                     #endregion
                     break;
             }
-            comboBoxMaskBits.SelectedIndex = 0;
+            //comboBoxMaskBits.SelectedIndex = 0;
         }
 
         public void createHostsPerSubnetOptions(int radioButtonNumber)
