@@ -42,209 +42,9 @@ namespace SubNetCalc
         {
             radioButton1.Checked = true;
             isLoaded = true;
-        }       
-        private void IpToHex()
-        {
-            string str = "";
-            for (int i = 0; i < 4; i++)
-            {
-                HexValue = Convert.ToInt32(ipS2Value[i]);
-                HexText = Convert.ToString(HexValue, 16).ToUpper();
-                if (HexText.Length < 2)
-                {
-                    HexText = "0" + HexText;
-                }
-                if (i != 3)
-                {
-                    str += HexText + ".";
-                }
-                else
-                {
-                    str += HexText;
-                }
-            }
-            textBoxHexIPAddress.Text = str;
         }
-        private void maskToWildcard()
-        {
-            wildcardS1Mask = comboBoxSubnetMask.Text;
-            wildcardS2Mask = wildcardS1Mask.Split('.');
-            wildcardIMask = Array.ConvertAll(wildcardS2Mask, s => int.Parse(s));
-            for (int i = 0; i < 4; i++)
-            {
-                wildcardIMask2[i] = wildcardIMask1[i] - wildcardIMask[i];
-            }
-            wildcardMaskCopy = wildcardIMask2.Select(x => x.ToString()).ToArray();
-            textBoxWildcardMask.Text = String.Join(".", wildcardMaskCopy);
-        }
-
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
-        {
-            textBoxFirstOctetRange.Text = "1 - 126";
-            textBoxIpAdress.Text = "10.0.0.1";
-            textBoxHostAddressRange.Text = "10.0.0.1 - 10.255.255.254";
-            textBoxSubnetID.Text = "10.0.0.0";
-            textBoxBroadcastAddress.Text = "10.255.255.255";
-
-            isLoaded = false;
-            createAndClearComboBoxes(1, ref isLoaded);
-        }
-
-        private void radioButton2_CheckedChanged(object sender, EventArgs e)
-        {
-            textBoxFirstOctetRange.Text = "128 - 191";
-            textBoxIpAdress.Text = "172.16.0.1";
-            textBoxHostAddressRange.Text = "172.16.0.1 - 172.16.255.254";
-            textBoxSubnetID.Text = "172.16.0.0";
-            textBoxBroadcastAddress.Text = "172.16.255.255";
-
-            isLoaded = false;
-            createAndClearComboBoxes(2, ref isLoaded);
-        }
-
-        private void radioButton3_CheckedChanged(object sender, EventArgs e)
-        {
-            textBoxFirstOctetRange.Text = "192 - 223";
-            textBoxIpAdress.Text = "192.168.0.1";
-            textBoxHostAddressRange.Text = "192.168.0.1 - 192.168.0.254";
-            textBoxSubnetID.Text = "192.168.0.0";
-            textBoxBroadcastAddress.Text = "192.168.0.255";
-
-            isLoaded = false;
-            createAndClearComboBoxes(3, ref isLoaded);
-        }
-
-        private void textBoxIpAdress_TextChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            ipS1Value = textBoxIpAdress.Text;
-            ipS2Value = ipS1Value.Split('.');
-            ipIValue = Array.ConvertAll(ipS2Value, s => int.Parse(s));
-            if (radioButton1.Checked == true)
-            {
-                if (ipIValue[0] >= 1 && ipIValue[0] <= 126 && ipIValue[1] >= 0 && ipIValue[1] <= 255 && ipIValue[2] >= 0 && ipIValue[2] <= 255 && ipIValue[3] >= 0 && ipIValue[3] <= 255)
-                {
-                    subnetId = ipIValue;
-                    broadcast = ipIValue;
-
-                    subnetId[1] = 0;
-                    subnetId[2] = 0;
-                    subnetId[3] = 0;
-
-                    subnetIdCopy = subnetId.Select(x=>x.ToString()).ToArray();
-
-                    addressRange1 = subnetId;
-                    addressRange1[3] += 1;
-
-                    addressRange1Copy = addressRange1.Select(x => x.ToString()).ToArray();
-
-                    //Do poprawienia
-                    broadcast[1] = 255;
-                    broadcast[2] = 255;
-                    broadcast[3] = wildcardIMask2[3];
-
-                    broadcastCopy = broadcast.Select(x => x.ToString()).ToArray();
-
-                    addressRange2 = broadcast;
-                    addressRange1[3] -= 1;
-
-                    addressRange2Copy = addressRange2.Select(x => x.ToString()).ToArray();
-
-                    textBoxSubnetID.Text = String.Join(".", subnetIdCopy);
-                    textBoxBroadcastAddress.Text = String.Join(".", broadcastCopy);
-                    textBoxHostAddressRange.Text = String.Join(".", addressRange1Copy) + " - " + String.Join(".", addressRange2Copy);
-
-                    maskToWildcard();
-                    IpToHex();
-                }
-                else
-                {
-                    radioButton1.Checked = true;
-                }
-            }
-            else if (radioButton2.Checked == true)
-            {
-                if (ipIValue[0] >= 128 && ipIValue[0] <= 191 && ipIValue[1] >= 0 && ipIValue[1] <= 255 && ipIValue[2] >= 0 && ipIValue[2] <= 255 && ipIValue[3] >= 0 && ipIValue[3] <= 255)
-                {
-                    subnetId = ipIValue;
-                    broadcast = ipIValue;
-
-                    subnetId[2] = 0;
-                    subnetId[3] = 0;
-
-                    subnetIdCopy = subnetId.Select(x => x.ToString()).ToArray();
-
-                    addressRange1 = subnetId;
-                    addressRange1[3] += 1;
-
-                    addressRange1Copy = addressRange1.Select(x => x.ToString()).ToArray();
-
-                    //Do poprawienia
-                    broadcast[2] = 255;
-                    broadcast[3] = wildcardIMask2[3];
-
-                    broadcastCopy = broadcast.Select(x => x.ToString()).ToArray();
-
-                    addressRange2 = broadcast;
-                    addressRange1[3] -= 1;
-
-                    addressRange2Copy = addressRange2.Select(x => x.ToString()).ToArray();
-
-                    textBoxSubnetID.Text = String.Join(".", subnetIdCopy);
-                    textBoxBroadcastAddress.Text = String.Join(".", broadcastCopy);
-                    textBoxHostAddressRange.Text = String.Join(".", addressRange1Copy) + " - " + String.Join(".", addressRange2Copy);
-
-                    maskToWildcard();
-                    IpToHex();
-                }
-                else
-                {
-                    radioButton2.Checked = true;
-                }
-            }
-            else
-            {
-                if (ipIValue[0] >= 192 && ipIValue[0] <= 223 && ipIValue[1] >= 0 && ipIValue[1] <= 255 && ipIValue[2] >= 0 && ipIValue[2] <= 255 && ipIValue[3] >= 0 && ipIValue[3] <= 255)
-                {
-                    subnetId = ipIValue;
-                    broadcast = ipIValue;
-
-                    subnetId[3] = 0;
-
-                    subnetIdCopy = subnetId.Select(x => x.ToString()).ToArray();
-
-                    addressRange1 = subnetId;
-                    addressRange1[3] += 1;
-
-                    addressRange1Copy = addressRange1.Select(x => x.ToString()).ToArray();
-
-                    //Do poprawienia
-                    broadcast[3] = wildcardIMask2[3];
-
-                    broadcastCopy = broadcast.Select(x => x.ToString()).ToArray();
-
-                    addressRange2 = broadcast;
-                    addressRange1[3] -= 1;
-
-                    addressRange2Copy = addressRange2.Select(x => x.ToString()).ToArray();
-
-                    textBoxSubnetID.Text = String.Join(".", subnetIdCopy);
-                    textBoxBroadcastAddress.Text = String.Join(".", broadcastCopy);
-                    textBoxHostAddressRange.Text = String.Join(".", addressRange1Copy) + " - " + String.Join(".", addressRange2Copy);
-
-                    maskToWildcard();
-                    IpToHex();
-                }
-                else
-                {
-                    radioButton3.Checked = true;
-                }
-            }
-        }
-        #region CreatingAndClearingComboBoxes Funtions
+        
+        #region [CreatingAndClearingComboBoxes Funtions]
         //Funtions used to create and Clear Comboboxes when radio button is pressed
         public void createAndClearComboBoxes(int radioButtonNumber, ref bool isLoaded)
         {
@@ -296,7 +96,7 @@ namespace SubNetCalc
         }
         #endregion
 
-        #region Options creating funtions
+        #region Creating Functions
         public void createSubnetMaskOptions(int radioButtonNumber)
         {
             switch (radioButtonNumber)
@@ -478,61 +278,28 @@ namespace SubNetCalc
                 case 1:
                     #region HostsperSubnetRadio1
                     //Adding options to comboBoxHostsPerSubnet when Radio 1 pressed
-                    comboBoxHostsPerSubnet.Items.Add("16777214");
-                    comboBoxHostsPerSubnet.Items.Add("8388606");
-                    comboBoxHostsPerSubnet.Items.Add("4194302");
-                    comboBoxHostsPerSubnet.Items.Add("2097150");
-                    comboBoxHostsPerSubnet.Items.Add("1048574");
-                    comboBoxHostsPerSubnet.Items.Add("524286");
-                    comboBoxHostsPerSubnet.Items.Add("262142");
-                    comboBoxHostsPerSubnet.Items.Add("131070");
-                    comboBoxHostsPerSubnet.Items.Add("65534");
-                    comboBoxHostsPerSubnet.Items.Add("32766");
-                    comboBoxHostsPerSubnet.Items.Add("16382");
-                    comboBoxHostsPerSubnet.Items.Add("8190");
-                    comboBoxHostsPerSubnet.Items.Add("4094");
-                    comboBoxHostsPerSubnet.Items.Add("2046");
-                    comboBoxHostsPerSubnet.Items.Add("1022");
-                    comboBoxHostsPerSubnet.Items.Add("510");
-                    comboBoxHostsPerSubnet.Items.Add("254");
-                    comboBoxHostsPerSubnet.Items.Add("126");
-                    comboBoxHostsPerSubnet.Items.Add("62");
-                    comboBoxHostsPerSubnet.Items.Add("30");
-                    comboBoxHostsPerSubnet.Items.Add("14");
-                    comboBoxHostsPerSubnet.Items.Add("6");
-                    comboBoxHostsPerSubnet.Items.Add("2");
+                    for (int i = 24; i >= 2; i--)
+                    {
+                        comboBoxHostsPerSubnet.Items.Add(Math.Pow(2, i) - 2);
+                    }
                     #endregion
                     break;
                 case 2:
                     #region HostsperSubnetRadio2
                     //Adding options to comboBoxHostsPerSubnet when Radio 1 pressed
-                    comboBoxHostsPerSubnet.Items.Add("65534");
-                    comboBoxHostsPerSubnet.Items.Add("32766");
-                    comboBoxHostsPerSubnet.Items.Add("16382");
-                    comboBoxHostsPerSubnet.Items.Add("8190");
-                    comboBoxHostsPerSubnet.Items.Add("4094");
-                    comboBoxHostsPerSubnet.Items.Add("2046");
-                    comboBoxHostsPerSubnet.Items.Add("1022");
-                    comboBoxHostsPerSubnet.Items.Add("510");
-                    comboBoxHostsPerSubnet.Items.Add("254");
-                    comboBoxHostsPerSubnet.Items.Add("126");
-                    comboBoxHostsPerSubnet.Items.Add("62");
-                    comboBoxHostsPerSubnet.Items.Add("30");
-                    comboBoxHostsPerSubnet.Items.Add("14");
-                    comboBoxHostsPerSubnet.Items.Add("6");
-                    comboBoxHostsPerSubnet.Items.Add("2");
+                    for (int i = 16; i >= 2; i--)
+                    {
+                        comboBoxHostsPerSubnet.Items.Add(Math.Pow(2, i) - 2);
+                    }
                     #endregion
                     break;
                 case 3:
                     #region HostsperSubnetRadio3
                     //Adding options to comboBoxHostsPerSubnet when Radio 3 pressed
-                    comboBoxHostsPerSubnet.Items.Add("254");
-                    comboBoxHostsPerSubnet.Items.Add("126");
-                    comboBoxHostsPerSubnet.Items.Add("62");
-                    comboBoxHostsPerSubnet.Items.Add("30");
-                    comboBoxHostsPerSubnet.Items.Add("14");
-                    comboBoxHostsPerSubnet.Items.Add("6");
-                    comboBoxHostsPerSubnet.Items.Add("2");
+                    for (int i = 8; i >= 2; i--)
+                    {
+                        comboBoxHostsPerSubnet.Items.Add(Math.Pow(2, i) - 2);
+                    }
                     #endregion
                     break;
             }
@@ -541,7 +308,7 @@ namespace SubNetCalc
         #endregion
         #endregion
 
-        #region FuntionsChangingComboBoxesIndexesOnIndexChange
+        #region [FuntionsChangingComboBoxesIndexesOnIndexChange]
         //Functions to make all comboBoxesIndexes same
 
         #region SelectedIndexChanged functions
@@ -549,30 +316,40 @@ namespace SubNetCalc
         {
             int selectedIndex = comboBoxSubnetBits.SelectedIndex;
             changeComboBoxIndex(selectedIndex);
+
+            onUpdateOperation();
         }
 
         private void comboBoxSubnetMask_SelectedIndexChanged(object sender, EventArgs e)
         {
             int selectedIndex = comboBoxSubnetMask.SelectedIndex;
             changeComboBoxIndex(selectedIndex);
+
+            onUpdateOperation();
         }
 
         private void comboBoxMinimumSubnets_SelectedIndexChanged(object sender, EventArgs e)
         {
             int selectedIndex = comboBoxMinimumSubnets.SelectedIndex;
             changeComboBoxIndex(selectedIndex);
+
+            onUpdateOperation();
         }
 
         private void comboBoxMaskBits_SelectedIndexChanged(object sender, EventArgs e)
         {
             int selectedIndex = comboBoxMaskBits.SelectedIndex;
             changeComboBoxIndex(selectedIndex);
+
+            onUpdateOperation();
         }
 
         private void comboBoxHostsPerSubnet_SelectedIndexChanged(object sender, EventArgs e)
         {
             int selectedIndex = comboBoxHostsPerSubnet.SelectedIndex;
             changeComboBoxIndex(selectedIndex);
+
+            onUpdateOperation();
         }
         #endregion
 
@@ -586,7 +363,241 @@ namespace SubNetCalc
                 comboBoxMaskBits.SelectedIndex = selectedIndex;
                 comboBoxHostsPerSubnet.SelectedIndex = selectedIndex;
             }
-        }   
+        }
+        #endregion
+        #region [radioButtonChangeValues]
+        //Funtions that change radioButtonValues
+        public void radioButtonChangeValues(int radioButtonNumber)
+        {
+            switch (radioButtonNumber)
+            {
+                case 1:
+                    textBoxFirstOctetRange.Text = "1 - 126";
+                    textBoxIpAdress.Text = "10.0.0.1";
+                    textBoxHostAddressRange.Text = "10.0.0.1 - 10.255.255.254";
+                    textBoxSubnetID.Text = "10.0.0.0";
+                    textBoxBroadcastAddress.Text = "10.255.255.255";
+                    break;
+                case 2:
+                    textBoxFirstOctetRange.Text = "128 - 191";
+                    textBoxIpAdress.Text = "172.16.0.1";
+                    textBoxHostAddressRange.Text = "172.16.0.1 - 172.16.255.254";
+                    textBoxSubnetID.Text = "172.16.0.0";
+                    textBoxBroadcastAddress.Text = "172.16.255.255";
+                    break;
+                case 3:
+                    textBoxFirstOctetRange.Text = "192 - 223";
+                    textBoxIpAdress.Text = "192.168.0.1";
+                    textBoxHostAddressRange.Text = "192.168.0.1 - 192.168.0.254";
+                    textBoxSubnetID.Text = "192.168.0.0";
+                    textBoxBroadcastAddress.Text = "192.168.0.255";
+                    break;
+            }
+        }
+        #endregion
+        #region [operationFunctions]
+        //Functions doing something like changing values etc.
+        private void IpToHex()
+        {
+            string str = "";
+            for (int i = 0; i < 4; i++)
+            {
+                HexValue = Convert.ToInt32(ipS2Value[i]);
+                HexText = Convert.ToString(HexValue, 16).ToUpper();
+                if (HexText.Length < 2)
+                {
+                    HexText = "0" + HexText;
+                }
+                if (i != 3)
+                {
+                    str += HexText + ".";
+                }
+                else
+                {
+                    str += HexText;
+                }
+            }
+            textBoxHexIPAddress.Text = str;
+        }
+        private void maskToWildcard()
+        {
+            if(isLoaded)
+            {
+                wildcardS1Mask = comboBoxSubnetMask.Text;
+                wildcardS2Mask = wildcardS1Mask.Split('.');
+                wildcardIMask = Array.ConvertAll(wildcardS2Mask, s => int.Parse(s));
+                for (int i = 0; i < 4; i++)
+                {
+                    wildcardIMask2[i] = wildcardIMask1[i] - wildcardIMask[i];
+                }
+                wildcardMaskCopy = wildcardIMask2.Select(x => x.ToString()).ToArray();
+                textBoxWildcardMask.Text = String.Join(".", wildcardMaskCopy);
+            }
+        }
+
+        public void onUpdateOperation()
+        {
+            ipS1Value = textBoxIpAdress.Text;
+            ipS2Value = ipS1Value.Split('.');
+            ipIValue = Array.ConvertAll(ipS2Value, s => int.Parse(s));
+
+            if (radioButton1.Checked == true)
+            {
+                if (ipIValue[0] >= 1 && ipIValue[0] <= 126 && ipIValue[1] >= 0 && ipIValue[1] <= 255 && ipIValue[2] >= 0 && ipIValue[2] <= 255 && ipIValue[3] >= 0 && ipIValue[3] <= 255)
+                {
+                    subnetId = ipIValue;
+                    broadcast = ipIValue;
+
+                    subnetId[1] = 0;
+                    subnetId[2] = 0;
+                    subnetId[3] = 0;
+
+                    subnetIdCopy = subnetId.Select(x => x.ToString()).ToArray();
+
+                    addressRange1 = subnetId;
+                    addressRange1[3] += 1;
+
+                    addressRange1Copy = addressRange1.Select(x => x.ToString()).ToArray();
+
+                    broadcast[1] = 255;
+                    broadcast[2] = 255;
+                    broadcast[3] = wildcardIMask2[3];
+
+                    broadcastCopy = broadcast.Select(x => x.ToString()).ToArray();
+
+                    addressRange2 = broadcast;
+                    addressRange1[3] -= 1;
+
+                    addressRange2Copy = addressRange2.Select(x => x.ToString()).ToArray();
+
+                    textBoxSubnetID.Text = String.Join(".", subnetIdCopy);
+                    textBoxBroadcastAddress.Text = String.Join(".", broadcastCopy);
+                    textBoxHostAddressRange.Text = String.Join(".", addressRange1Copy) + " - " + String.Join(".", addressRange2Copy);
+
+                    maskToWildcard();
+                    IpToHex();
+                }
+                else
+                {
+                    radioButton1.Checked = true;
+                }
+            }
+            else if (radioButton2.Checked == true)
+            {
+                if (ipIValue[0] >= 128 && ipIValue[0] <= 191 && ipIValue[1] >= 0 && ipIValue[1] <= 255 && ipIValue[2] >= 0 && ipIValue[2] <= 255 && ipIValue[3] >= 0 && ipIValue[3] <= 255)
+                {
+                    subnetId = ipIValue;
+                    broadcast = ipIValue;
+
+                    subnetId[2] = 0;
+                    subnetId[3] = 0;
+
+                    subnetIdCopy = subnetId.Select(x => x.ToString()).ToArray();
+
+                    addressRange1 = subnetId;
+                    addressRange1[3] += 1;
+
+                    addressRange1Copy = addressRange1.Select(x => x.ToString()).ToArray();
+
+                    broadcast[2] = 255;
+                    broadcast[3] = wildcardIMask2[3];
+
+                    broadcastCopy = broadcast.Select(x => x.ToString()).ToArray();
+
+                    addressRange2 = broadcast;
+                    addressRange1[3] -= 1;
+
+                    addressRange2Copy = addressRange2.Select(x => x.ToString()).ToArray();
+
+                    textBoxSubnetID.Text = String.Join(".", subnetIdCopy);
+                    textBoxBroadcastAddress.Text = String.Join(".", broadcastCopy);
+                    textBoxHostAddressRange.Text = String.Join(".", addressRange1Copy) + " - " + String.Join(".", addressRange2Copy);
+
+                    maskToWildcard();
+                    IpToHex();
+                }
+                else
+                {
+                    radioButton2.Checked = true;
+                }
+            }
+            else
+            {
+                if (ipIValue[0] >= 192 && ipIValue[0] <= 223 && ipIValue[1] >= 0 && ipIValue[1] <= 255 && ipIValue[2] >= 0 && ipIValue[2] <= 255 && ipIValue[3] >= 0 && ipIValue[3] <= 255)
+                {
+                    subnetId = ipIValue;
+                    broadcast = ipIValue;
+
+                    subnetId[3] = 0;
+
+                    subnetIdCopy = subnetId.Select(x => x.ToString()).ToArray();
+
+                    addressRange1 = subnetId;
+                    addressRange1[3] += 1;
+
+                    addressRange1Copy = addressRange1.Select(x => x.ToString()).ToArray();
+
+                    broadcast[3] = wildcardIMask2[3];
+
+                    broadcastCopy = broadcast.Select(x => x.ToString()).ToArray();
+
+                    addressRange2 = broadcast;
+                    addressRange1[3] -= 1;
+
+                    addressRange2Copy = addressRange2.Select(x => x.ToString()).ToArray();
+
+                    textBoxSubnetID.Text = String.Join(".", subnetIdCopy);
+                    textBoxBroadcastAddress.Text = String.Join(".", broadcastCopy);
+                    textBoxHostAddressRange.Text = String.Join(".", addressRange1Copy) + " - " + String.Join(".", addressRange2Copy);
+
+                    maskToWildcard();
+                    IpToHex();
+                }
+                else
+                {
+                    radioButton3.Checked = true;
+                }
+            }
+        }
+        #endregion
+        #region [miscFunctions]
+        //Unused funtions that can't be deleted
+        #endregion
+        #region [valueChangedFunctions]
+        //Most of the xChanged functions, if xChanged function is not here it's because it's in it's respectable region
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            radioButtonChangeValues(1);
+            isLoaded = false;
+            createAndClearComboBoxes(1, ref isLoaded);
+
+            onUpdateOperation();
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            radioButtonChangeValues(2);
+            isLoaded = false;
+            createAndClearComboBoxes(2, ref isLoaded);
+
+            onUpdateOperation();
+        }
+
+        private void radioButton3_CheckedChanged(object sender, EventArgs e)
+        {
+            radioButtonChangeValues(3);
+            isLoaded = false;
+            createAndClearComboBoxes(3, ref isLoaded);
+
+            onUpdateOperation();
+        }
+
+        private void textBoxIpAdress_TextChanged(object sender, EventArgs e)
+        {
+            onUpdateOperation();
+        }
+        #endregion
     }
-    #endregion
+
+
 }
