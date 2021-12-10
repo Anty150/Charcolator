@@ -32,6 +32,7 @@ namespace SubNetCalc
         int[] wildcardIMask2 = new int[4];
         int HexValue;
         string HexText;
+        string bitmap;
 
         bool isLoaded = false;
         public Form1()
@@ -397,6 +398,90 @@ namespace SubNetCalc
         #endregion
         #region [operationFunctions]
         //Functions doing something like changing values etc.
+
+        private void subnetBitmap()
+        {
+            if (radioButton1.Checked == true)
+            {
+
+                bitmap = "0";
+                for (int i = 0; i < 7; i++)
+                {
+                    bitmap += "n";
+                }
+                //bitmap += ".";
+                for (int i = 0; i <= comboBoxSubnetBits.SelectedIndex - 1; i++)
+                {
+                    bitmap += "s";
+                }
+                for (int i = 22; i >= comboBoxHostsPerSubnet.SelectedIndex - 1; i--)
+                {
+                    bitmap += "h";
+                }
+            }
+            else if(radioButton2.Checked == true)
+            {
+                bitmap = "10";
+                for (int i = 0; i < 14; i++)
+                {
+                    ///if(i != 5 && i != 13)
+                    //{
+                        bitmap += "n";
+                    /*}
+                    else
+                    {
+                        bitmap += "n.";
+                    }*/
+                }
+                for (int i = 0; i <= comboBoxSubnetBits.SelectedIndex - 1; i++)
+                {
+                    //if (i != 7)
+                    //{
+                        bitmap += "s";
+                    /*}
+                    else
+                    {
+                        bitmap += "s.";
+                    }*/
+                }
+                for (int i = 14; i >= comboBoxHostsPerSubnet.SelectedIndex - 1; i--)
+                {
+                    //if (i != 7)
+                    //{
+                        bitmap += "h";
+                    /*}
+                    else
+                    {
+                        bitmap += "h.";
+                    }*/
+                }
+            }
+            else
+            {
+                bitmap = "110";
+                for (int i = 0; i < 21; i++)
+                {
+                    if (i != 5 && i != 13 && i!= 20)
+                    {
+                        bitmap += "n";
+                    }
+                    else
+                    {
+                        bitmap += "n.";
+                    }
+                }
+                for (int i = 0; i <= comboBoxSubnetBits.SelectedIndex - 1; i++)
+                {
+                    bitmap += "s";
+                }
+                for (int i = 6; i >= comboBoxHostsPerSubnet.SelectedIndex - 1; i--)
+                {
+                    bitmap += "h";
+                }
+            }
+            textBoxSubnetBitmap.Text = bitmap;
+        }
+
         private void IpToHex()
         {
             string str = "";
@@ -558,6 +643,7 @@ namespace SubNetCalc
                     radioButton3.Checked = true;
                 }
             }
+            subnetBitmap();
         }
         #endregion
         #region [miscFunctions]

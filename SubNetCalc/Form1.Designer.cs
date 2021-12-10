@@ -232,6 +232,7 @@ namespace SubNetCalc
             this.textBoxSubnetBitmap.ReadOnly = true;
             this.textBoxSubnetBitmap.Size = new System.Drawing.Size(485, 20);
             this.textBoxSubnetBitmap.TabIndex = 19;
+            this.textBoxSubnetBitmap.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // comboBoxHostsPerSubnet
             // 
@@ -346,7 +347,7 @@ namespace SubNetCalc
             // 
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.ClientSize = new System.Drawing.Size(509, 644);
+            this.ClientSize = new System.Drawing.Size(509, 459);
             this.Controls.Add(this.textBoxBroadcastAddress);
             this.Controls.Add(this.labelToBroadcastAddress);
             this.Controls.Add(this.textBoxFirstOctetRange);
