@@ -403,80 +403,95 @@ namespace SubNetCalc
         {
             if (radioButton1.Checked == true)
             {
-
-                bitmap = "0";
+                string sBitmap = "0";
+                bitmap = "";
+                
                 for (int i = 0; i < 7; i++)
                 {
-                    bitmap += "n";
+                    sBitmap += "n";
+
                 }
-                //bitmap += ".";
+                
                 for (int i = 0; i <= comboBoxSubnetBits.SelectedIndex - 1; i++)
                 {
-                    bitmap += "s";
+                    sBitmap += "s";                   
+                    
                 }
+                
                 for (int i = 22; i >= comboBoxHostsPerSubnet.SelectedIndex - 1; i--)
                 {
-                    bitmap += "h";
+                    sBitmap += "h";
+                }
+
+                for(int i = 0; i < 32; i++)
+                {
+                    bitmap += sBitmap[i];
+                    if(i == 7 || i == 15 || i == 23)
+                    {
+                        bitmap += ".";
+                    }
                 }
             }
             else if(radioButton2.Checked == true)
             {
-                bitmap = "10";
+                string sBitmap = "10";
+                bitmap = "";
+
                 for (int i = 0; i < 14; i++)
                 {
-                    ///if(i != 5 && i != 13)
-                    //{
-                        bitmap += "n";
-                    /*}
-                    else
-                    {
-                        bitmap += "n.";
-                    }*/
+                    sBitmap += "n";
+
                 }
+
                 for (int i = 0; i <= comboBoxSubnetBits.SelectedIndex - 1; i++)
                 {
-                    //if (i != 7)
-                    //{
-                        bitmap += "s";
-                    /*}
-                    else
-                    {
-                        bitmap += "s.";
-                    }*/
+                    sBitmap += "s";
+
                 }
-                for (int i = 14; i >= comboBoxHostsPerSubnet.SelectedIndex - 1; i--)
+
+                for (int i = 22; i >= comboBoxHostsPerSubnet.SelectedIndex - 1; i--)
                 {
-                    //if (i != 7)
-                    //{
-                        bitmap += "h";
-                    /*}
-                    else
+                    sBitmap += "h";
+                }
+
+                for (int i = 0; i < 32; i++)
+                {
+                    bitmap += sBitmap[i];
+                    if (i == 7 || i == 15 || i == 23)
                     {
-                        bitmap += "h.";
-                    }*/
+                        bitmap += ".";
+                    }
                 }
             }
             else
             {
-                bitmap = "110";
+                string sBitmap = "110";
+                bitmap = "";
+
                 for (int i = 0; i < 21; i++)
                 {
-                    if (i != 5 && i != 13 && i!= 20)
-                    {
-                        bitmap += "n";
-                    }
-                    else
-                    {
-                        bitmap += "n.";
-                    }
+                    sBitmap += "n";
+
                 }
+
                 for (int i = 0; i <= comboBoxSubnetBits.SelectedIndex - 1; i++)
                 {
-                    bitmap += "s";
+                    sBitmap += "s";
+
                 }
-                for (int i = 6; i >= comboBoxHostsPerSubnet.SelectedIndex - 1; i--)
+
+                for (int i = 22; i >= comboBoxHostsPerSubnet.SelectedIndex - 1; i--)
                 {
-                    bitmap += "h";
+                    sBitmap += "h";
+                }
+
+                for (int i = 0; i < 32; i++)
+                {
+                    bitmap += sBitmap[i];
+                    if (i == 7 || i == 15 || i == 23)
+                    {
+                        bitmap += ".";
+                    }
                 }
             }
             textBoxSubnetBitmap.Text = bitmap;
