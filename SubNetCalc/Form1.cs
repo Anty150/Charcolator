@@ -43,6 +43,7 @@ namespace SubNetCalc
         {
             radioButton1.Checked = true;
             isLoaded = true;
+            onUpdateOperation();
         }
         
         #region [CreatingAndClearingComboBoxes Funtions]
