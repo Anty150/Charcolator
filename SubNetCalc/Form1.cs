@@ -590,36 +590,10 @@ namespace SubNetCalc
             {
                 if (ipIValue[0] >= 1 && ipIValue[0] <= 126 && ipIValue[1] >= 0 && ipIValue[1] <= 255 && ipIValue[2] >= 0 && ipIValue[2] <= 255 && ipIValue[3] >= 0 && ipIValue[3] <= 255)
                 {
-                    subnetId = ipIValue;
-                    broadcast = ipIValue;
-
-                    subnetId[1] = 0;
-                    subnetId[2] = 0;
-                    subnetId[3] = 0;
-
-                    subnetIdCopy = subnetId.Select(x => x.ToString()).ToArray();
-
-                    addressRange1 = subnetId;
-                    addressRange1[3] += 1;
-
-                    addressRange1Copy = addressRange1.Select(x => x.ToString()).ToArray();
-
-                    broadcast[1] = 255;
-                    broadcast[2] = 255;
-                    broadcast[3] = wildcardIMask2[3];
-
-                    broadcastCopy = broadcast.Select(x => x.ToString()).ToArray();
-
-                    addressRange2 = broadcast;
-                    addressRange1[3] -= 1;
-
-                    addressRange2Copy = addressRange2.Select(x => x.ToString()).ToArray();
-
-                    textBoxSubnetID.Text = String.Join(".", subnetIdCopy);
-                    textBoxBroadcastAddress.Text = String.Join(".", broadcastCopy);
-                    textBoxHostAddressRange.Text = String.Join(".", addressRange1Copy) + " - " + String.Join(".", addressRange2Copy);
-
                     maskToWildcard();
+                    setSubnetId();
+                    setBroadcastAddress();
+                    setAddressRange();
                     IpToHex();
                 }
                 else
@@ -632,34 +606,10 @@ namespace SubNetCalc
             {
                 if (ipIValue[0] >= 128 && ipIValue[0] <= 191 && ipIValue[1] >= 0 && ipIValue[1] <= 255 && ipIValue[2] >= 0 && ipIValue[2] <= 255 && ipIValue[3] >= 0 && ipIValue[3] <= 255)
                 {
-                    subnetId = ipIValue;
-                    broadcast = ipIValue;
-
-                    subnetId[2] = 0;
-                    subnetId[3] = 0;
-
-                    subnetIdCopy = subnetId.Select(x => x.ToString()).ToArray();
-
-                    addressRange1 = subnetId;
-                    addressRange1[3] += 1;
-
-                    addressRange1Copy = addressRange1.Select(x => x.ToString()).ToArray();
-
-                    broadcast[2] = 255;
-                    broadcast[3] = wildcardIMask2[3];
-
-                    broadcastCopy = broadcast.Select(x => x.ToString()).ToArray();
-
-                    addressRange2 = broadcast;
-                    addressRange1[3] -= 1;
-
-                    addressRange2Copy = addressRange2.Select(x => x.ToString()).ToArray();
-
-                    textBoxSubnetID.Text = String.Join(".", subnetIdCopy);
-                    textBoxBroadcastAddress.Text = String.Join(".", broadcastCopy);
-                    textBoxHostAddressRange.Text = String.Join(".", addressRange1Copy) + " - " + String.Join(".", addressRange2Copy);
-
                     maskToWildcard();
+                    setSubnetId();
+                    setBroadcastAddress();
+                    setAddressRange();
                     IpToHex();
                 }
                 else
@@ -672,32 +622,10 @@ namespace SubNetCalc
             {
                 if (ipIValue[0] >= 192 && ipIValue[0] <= 223 && ipIValue[1] >= 0 && ipIValue[1] <= 255 && ipIValue[2] >= 0 && ipIValue[2] <= 255 && ipIValue[3] >= 0 && ipIValue[3] <= 255)
                 {
-                    subnetId = ipIValue;
-                    broadcast = ipIValue;
-
-                    subnetId[3] = 0;
-
-                    subnetIdCopy = subnetId.Select(x => x.ToString()).ToArray();
-
-                    addressRange1 = subnetId;
-                    addressRange1[3] += 1;
-
-                    addressRange1Copy = addressRange1.Select(x => x.ToString()).ToArray();
-
-                    broadcast[3] = wildcardIMask2[3];
-
-                    broadcastCopy = broadcast.Select(x => x.ToString()).ToArray();
-
-                    addressRange2 = broadcast;
-                    addressRange1[3] -= 1;
-
-                    addressRange2Copy = addressRange2.Select(x => x.ToString()).ToArray();
-
-                    textBoxSubnetID.Text = String.Join(".", subnetIdCopy);
-                    textBoxBroadcastAddress.Text = String.Join(".", broadcastCopy);
-                    textBoxHostAddressRange.Text = String.Join(".", addressRange1Copy) + " - " + String.Join(".", addressRange2Copy);
-
                     maskToWildcard();
+                    setSubnetId();
+                    setBroadcastAddress();
+                    setAddressRange();
                     IpToHex();
                 }
                 else
@@ -707,6 +635,64 @@ namespace SubNetCalc
                 }
             }
             subnetBitmap();
+        }
+        private void setSubnetId()
+        {
+            subnetId = ipIValue;
+
+            if (radioButton1.Checked)
+            {
+
+                subnetIdCopy = subnetId.Select(x => x.ToString()).ToArray();
+                textBoxSubnetID.Text = String.Join(".", subnetIdCopy);
+            }
+            else if (radioButton2.Checked)
+            {
+
+                subnetIdCopy = subnetId.Select(x => x.ToString()).ToArray();
+                textBoxSubnetID.Text = String.Join(".", subnetIdCopy);
+            }
+            else if (radioButton3.Checked)
+            {
+
+                subnetIdCopy = subnetId.Select(x => x.ToString()).ToArray();
+                textBoxSubnetID.Text = String.Join(".", subnetIdCopy);
+            }
+        }
+        private void setBroadcastAddress()
+        {
+            broadcast = wildcardIMask2;
+
+            if (radioButton1.Checked)
+            {
+
+                broadcastCopy = broadcast.Select(x => x.ToString()).ToArray();
+                textBoxBroadcastAddress.Text = String.Join(".", broadcastCopy);
+            }
+            else if (radioButton2.Checked)
+            {
+
+                broadcastCopy = broadcast.Select(x => x.ToString()).ToArray();
+                textBoxBroadcastAddress.Text = String.Join(".", broadcastCopy);
+            }
+            else if (radioButton3.Checked)
+            {
+
+                broadcastCopy = broadcast.Select(x => x.ToString()).ToArray();
+                textBoxBroadcastAddress.Text = String.Join(".", broadcastCopy);
+            }
+        }
+        private void setAddressRange()
+        {
+            addressRange1 = subnetId;
+            addressRange1[3] += 1;
+            addressRange1Copy = addressRange1.Select(x => x.ToString()).ToArray();
+
+            addressRange2 = broadcast;
+            addressRange2[3] -= 1;
+            addressRange2Copy = addressRange2.Select(x => x.ToString()).ToArray();
+
+            textBoxHostAddressRange.Text = String.Join(".", addressRange1Copy) + " - " + String.Join(".", addressRange2Copy);
         }
         #endregion
         #region [miscFunctions]
