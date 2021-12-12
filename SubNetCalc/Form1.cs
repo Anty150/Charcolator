@@ -586,7 +586,7 @@ namespace SubNetCalc
                 return;
             ipIValue = Array.ConvertAll(ipS2Value, s => int.Parse(s));
 
-            if (radioButton1.Checked == true)
+            if (radioButton1.Checked)
             {
                 if (ipIValue[0] >= 1 && ipIValue[0] <= 126 && ipIValue[1] >= 0 && ipIValue[1] <= 255 && ipIValue[2] >= 0 && ipIValue[2] <= 255 && ipIValue[3] >= 0 && ipIValue[3] <= 255)
                 {
@@ -628,7 +628,7 @@ namespace SubNetCalc
                     radioButton1.Checked = true;
                 }
             }
-            else if (radioButton2.Checked == true)
+            else if (radioButton2.Checked)
             {
                 if (ipIValue[0] >= 128 && ipIValue[0] <= 191 && ipIValue[1] >= 0 && ipIValue[1] <= 255 && ipIValue[2] >= 0 && ipIValue[2] <= 255 && ipIValue[3] >= 0 && ipIValue[3] <= 255)
                 {
