@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Input;
 
 namespace SubNetCalc
 {
@@ -309,7 +310,6 @@ namespace SubNetCalc
         }
         #endregion
         #endregion
-
         #region [FuntionsChangingComboBoxesIndexesOnIndexChange]
         //Functions to make all comboBoxesIndexes same
 
@@ -395,6 +395,47 @@ namespace SubNetCalc
                     textBoxBroadcastAddress.Text = "192.168.0.255";
                     break;
             }
+        }
+        public bool isIpOk()
+        {
+            int iCheck;
+            ipS1Value = textBoxIpAdress.Text;
+            ipS2Value = ipS1Value.Split('.');
+            if (ipS2Value.Length != 4)
+            {
+                return false;
+            }
+            else if (ipS2Value[3].Length == 0)
+            {
+                return false;
+            }
+            for (int i = 0; i < ipS2Value.Length; i++)
+            {
+                if (int.TryParse(ipS2Value[i], out iCheck))
+                {
+                    if (iCheck > 255)
+                    {
+                        if (radioButton1.Checked)
+                        {
+                            radioButtonChangeValues(1);
+                        }
+                        else if (radioButton2.Checked)
+                        {
+                            radioButtonChangeValues(2);
+                        }
+                        else
+                        {
+                            radioButtonChangeValues(3);
+                        }
+                        return false;
+                    }
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            return true;
         }
         #endregion
         #region [operationFunctions]
@@ -540,6 +581,9 @@ namespace SubNetCalc
         {
             ipS1Value = textBoxIpAdress.Text;
             ipS2Value = ipS1Value.Split('.');
+
+            if (!isIpOk())
+                return;
             ipIValue = Array.ConvertAll(ipS2Value, s => int.Parse(s));
 
             if (radioButton1.Checked == true)
@@ -580,6 +624,7 @@ namespace SubNetCalc
                 }
                 else
                 {
+                    radioButtonChangeValues(1);
                     radioButton1.Checked = true;
                 }
             }
@@ -619,6 +664,7 @@ namespace SubNetCalc
                 }
                 else
                 {
+                    radioButtonChangeValues(2);
                     radioButton2.Checked = true;
                 }
             }
@@ -656,6 +702,7 @@ namespace SubNetCalc
                 }
                 else
                 {
+                    radioButtonChangeValues(3);
                     radioButton3.Checked = true;
                 }
             }
@@ -672,7 +719,6 @@ namespace SubNetCalc
             radioButtonChangeValues(1);
             isLoaded = false;
             createAndClearComboBoxes(1, ref isLoaded);
-
             onUpdateOperation();
         }
 
@@ -681,7 +727,6 @@ namespace SubNetCalc
             radioButtonChangeValues(2);
             isLoaded = false;
             createAndClearComboBoxes(2, ref isLoaded);
-
             onUpdateOperation();
         }
 
@@ -690,15 +735,18 @@ namespace SubNetCalc
             radioButtonChangeValues(3);
             isLoaded = false;
             createAndClearComboBoxes(3, ref isLoaded);
-
             onUpdateOperation();
         }
 
-        private void textBoxIpAdress_TextChanged(object sender, EventArgs e)
+        private void textBoxIpAdress_TextChanged(object sender,EventArgs e)
         {
-            onUpdateOperation();
+            if(isIpOk())
+            {
+                onUpdateOperation();
+            }
         }
         #endregion
+
     }
 
 
