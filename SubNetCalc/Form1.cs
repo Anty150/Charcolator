@@ -17,7 +17,6 @@ namespace SubNetCalc
         string wildcardS1Mask;
 
         string[] ipS2Value = new string[4];
-        string[] subnetIdCopy = new string[4];
         string[] broadcastCopy = new string[4];
         string[] addressRange1Copy = new string[4];
         string[] addressRange2Copy = new string[4];
@@ -34,6 +33,10 @@ namespace SubNetCalc
         int HexValue;
         string HexText;
         string bitmap;
+
+        string maskSBinary1;
+        string[] maskSBinary2 = new string[4];
+        int[] maskIBinary = new int[4];
 
         bool isLoaded = false;
         public Form1()
@@ -576,7 +579,15 @@ namespace SubNetCalc
                 textBoxWildcardMask.Text = String.Join(".", wildcardMaskCopy);
             }
         }
-
+        public void convertSubnetMaskToInt()
+        {
+            if (isLoaded)
+            {
+                maskSBinary1 = comboBoxSubnetMask.Text;
+                maskSBinary2 = maskSBinary1.Split('.');
+                maskIBinary = Array.ConvertAll(maskSBinary2, s => int.Parse(s));
+            }
+        }
         public void onUpdateOperation()
         {
             ipS1Value = textBoxIpAdress.Text;
@@ -590,6 +601,7 @@ namespace SubNetCalc
             {
                 if (ipIValue[0] >= 1 && ipIValue[0] <= 126 && ipIValue[1] >= 0 && ipIValue[1] <= 255 && ipIValue[2] >= 0 && ipIValue[2] <= 255 && ipIValue[3] >= 0 && ipIValue[3] <= 255)
                 {
+                    convertSubnetMaskToInt();
                     maskToWildcard();
                     setSubnetId();
                     setBroadcastAddress();
@@ -606,6 +618,7 @@ namespace SubNetCalc
             {
                 if (ipIValue[0] >= 128 && ipIValue[0] <= 191 && ipIValue[1] >= 0 && ipIValue[1] <= 255 && ipIValue[2] >= 0 && ipIValue[2] <= 255 && ipIValue[3] >= 0 && ipIValue[3] <= 255)
                 {
+                    convertSubnetMaskToInt();
                     maskToWildcard();
                     setSubnetId();
                     setBroadcastAddress();
@@ -622,6 +635,7 @@ namespace SubNetCalc
             {
                 if (ipIValue[0] >= 192 && ipIValue[0] <= 223 && ipIValue[1] >= 0 && ipIValue[1] <= 255 && ipIValue[2] >= 0 && ipIValue[2] <= 255 && ipIValue[3] >= 0 && ipIValue[3] <= 255)
                 {
+                    convertSubnetMaskToInt();
                     maskToWildcard();
                     setSubnetId();
                     setBroadcastAddress();
@@ -636,50 +650,41 @@ namespace SubNetCalc
             }
             subnetBitmap();
         }
-        private void setSubnetId()
+        public void setSubnetId()
         {
-            subnetId = ipIValue;
-
-            if (radioButton1.Checked)
+            if (isLoaded)
             {
-
-                subnetIdCopy = subnetId.Select(x => x.ToString()).ToArray();
-                textBoxSubnetID.Text = String.Join(".", subnetIdCopy);
-            }
-            else if (radioButton2.Checked)
-            {
-
-                subnetIdCopy = subnetId.Select(x => x.ToString()).ToArray();
-                textBoxSubnetID.Text = String.Join(".", subnetIdCopy);
-            }
-            else if (radioButton3.Checked)
-            {
-
-                subnetIdCopy = subnetId.Select(x => x.ToString()).ToArray();
-                textBoxSubnetID.Text = String.Join(".", subnetIdCopy);
+                textBoxSubnetID.Text = "";
+                for (int i = 0; i < 4;i++)
+                {
+                    subnetId[i] = ipIValue[i] & maskIBinary[i];
+                    textBoxSubnetID.Text += subnetId[i] + "";
+                    if(i != 3)
+                    {
+                        textBoxSubnetID.Text += ".";
+                    }
+                }
             }
         }
         private void setBroadcastAddress()
         {
             broadcast = wildcardIMask2;
 
-            if (radioButton1.Checked)
+            if (isLoaded)
             {
-
-                broadcastCopy = broadcast.Select(x => x.ToString()).ToArray();
-                textBoxBroadcastAddress.Text = String.Join(".", broadcastCopy);
-            }
-            else if (radioButton2.Checked)
-            {
-
-                broadcastCopy = broadcast.Select(x => x.ToString()).ToArray();
-                textBoxBroadcastAddress.Text = String.Join(".", broadcastCopy);
-            }
-            else if (radioButton3.Checked)
-            {
-
-                broadcastCopy = broadcast.Select(x => x.ToString()).ToArray();
-                textBoxBroadcastAddress.Text = String.Join(".", broadcastCopy);
+                textBoxBroadcastAddress.Text = "";
+                for (int i = 0; i < 4; i++)
+                {
+                    /*if() //Do poprawy
+                    {
+                        broadcast[i] = ipIValue[i] & maskIBinary[i];
+                        textBoxBroadcastAddress.Text += subnetId[i] + "";
+                        if (i != 3)
+                        {
+                            textBoxBroadcastAddress.Text += ".";
+                        }
+                    }*/
+                }
             }
         }
         private void setAddressRange()
