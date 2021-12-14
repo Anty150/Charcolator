@@ -13,32 +13,36 @@ namespace SubNetCalc
 {
     public partial class Form1 : Form
     {
+        #region [Variables]
+        bool isLoaded = false;
+
+        int HexValue;
+
+        string bitmap;
+        string HexText;
         string ipS1Value;
+        string maskS1Binary;
         string wildcardS1Mask;
 
-        string[] ipS2Value = new string[4];
-        string[] broadcastCopy = new string[4];
-        string[] addressRange1Copy = new string[4];
-        string[] addressRange2Copy = new string[4];
-        string[] wildcardS2Mask = new string[4];
-        string[] wildcardMaskCopy = new string[4];
-        int[] ipIValue = new int[4];
-        int[] subnetId = new int[4];
-        int[] broadcast = new int[4];
         int[] addressRange1 = new int[4];
         int[] addressRange2 = new int[4];
+        int[] broadcast = new int[4];
+        int[] ipIValue = new int[4];
+        int[] maskIBinary = new int[4];
+        int[] subnetId = new int[4];
         int[] wildcardIMask = new int[4];
         int[] wildcardIMask1 = new int[] { 255, 255, 255, 255 };
         int[] wildcardIMask2 = new int[4];
-        int HexValue;
-        string HexText;
-        string bitmap;
 
-        string maskSBinary1;
-        string[] maskSBinary2 = new string[4];
-        int[] maskIBinary = new int[4];
+        string[] addressRange1Copy = new string[4];
+        string[] addressRange2Copy = new string[4];
+        string[] ipS2Value = new string[4];
+        string[] maskS2Binary = new string[4];
+        string[] wildcardS2Mask = new string[4];
+        string[] wildcardMaskCopy = new string[4];
 
-        bool isLoaded = false;
+
+        #endregion
         public Form1()
         {
             InitializeComponent();
@@ -101,7 +105,6 @@ namespace SubNetCalc
             comboBoxHostsPerSubnet.Items.Clear();
         }
         #endregion
-
         #region Creating Functions
         public void createSubnetMaskOptions(int radioButtonNumber)
         {
@@ -399,6 +402,9 @@ namespace SubNetCalc
                     break;
             }
         }
+        #endregion
+        #region [operationFunctions]
+        //Functions doing something like changing values etc.
         public bool isIpOk()
         {
             int iCheck;
@@ -440,109 +446,75 @@ namespace SubNetCalc
             }
             return true;
         }
-        #endregion
-        #region [operationFunctions]
-        //Functions doing something like changing values etc.
-
-        private void subnetBitmap()
+        public void convertSubnetMaskToInt()
         {
-            if (radioButton1.Checked == true)
+            if (isLoaded)
             {
-                string sBitmap = "0";
-                bitmap = "";
-                
-                for (int i = 0; i < 7; i++)
-                {
-                    sBitmap += "n";
-
-                }
-                
-                for (int i = 0; i <= comboBoxSubnetBits.SelectedIndex - 1; i++)
-                {
-                    sBitmap += "s";                   
-                    
-                }
-                
-                for (int i = 22; i >= comboBoxHostsPerSubnet.SelectedIndex - 1; i--)
-                {
-                    sBitmap += "h";
-                }
-
-                for(int i = 0; i < 32; i++)
-                {
-                    bitmap += sBitmap[i];
-                    if(i == 7 || i == 15 || i == 23)
-                    {
-                        bitmap += ".";
-                    }
-                }
+                maskS1Binary = comboBoxSubnetMask.Text;
+                maskS2Binary = maskS1Binary.Split('.');
+                maskIBinary = Array.ConvertAll(maskS2Binary, s => int.Parse(s));
             }
-            else if(radioButton2.Checked == true)
-            {
-                string sBitmap = "10";
-                bitmap = "";
-
-                for (int i = 0; i < 14; i++)
-                {
-                    sBitmap += "n";
-
-                }
-
-                for (int i = 0; i <= comboBoxSubnetBits.SelectedIndex - 1; i++)
-                {
-                    sBitmap += "s";
-
-                }
-
-                for (int i = 22; i >= comboBoxHostsPerSubnet.SelectedIndex - 1; i--)
-                {
-                    sBitmap += "h";
-                }
-
-                for (int i = 0; i < 32; i++)
-                {
-                    bitmap += sBitmap[i];
-                    if (i == 7 || i == 15 || i == 23)
-                    {
-                        bitmap += ".";
-                    }
-                }
-            }
-            else
-            {
-                string sBitmap = "110";
-                bitmap = "";
-
-                for (int i = 0; i < 21; i++)
-                {
-                    sBitmap += "n";
-
-                }
-
-                for (int i = 0; i <= comboBoxSubnetBits.SelectedIndex - 1; i++)
-                {
-                    sBitmap += "s";
-
-                }
-
-                for (int i = 22; i >= comboBoxHostsPerSubnet.SelectedIndex - 1; i--)
-                {
-                    sBitmap += "h";
-                }
-
-                for (int i = 0; i < 32; i++)
-                {
-                    bitmap += sBitmap[i];
-                    if (i == 7 || i == 15 || i == 23)
-                    {
-                        bitmap += ".";
-                    }
-                }
-            }
-            textBoxSubnetBitmap.Text = bitmap;
         }
+        public void maskToWildcard()
+        {
+            if (isLoaded)
+            {
+                wildcardS1Mask = comboBoxSubnetMask.Text;
+                wildcardS2Mask = wildcardS1Mask.Split('.');
+                wildcardIMask = Array.ConvertAll(wildcardS2Mask, s => int.Parse(s));
+                for (int i = 0; i < 4; i++)
+                {
+                    wildcardIMask2[i] = wildcardIMask1[i] - wildcardIMask[i];
+                }
+                wildcardMaskCopy = wildcardIMask2.Select(x => x.ToString()).ToArray();
+                textBoxWildcardMask.Text = String.Join(".", wildcardMaskCopy);
+            }
+        }
+        public void setSubnetId()
+        {
+            if (isLoaded)
+            {
+                textBoxSubnetID.Text = "";
+                for (int i = 0; i < 4; i++)
+                {
+                    subnetId[i] = ipIValue[i] & maskIBinary[i];
+                    textBoxSubnetID.Text += subnetId[i] + "";
+                    if (i != 3)
+                    {
+                        textBoxSubnetID.Text += ".";
+                    }
+                }
+            }
+        }
+        public void setBroadcastAddress()
+        {
+            if (isLoaded)
+            {
+                textBoxBroadcastAddress.Text = "";
+                for (int i = 0; i < 4; i++)
+                {
+                    broadcast[i] = ipIValue[i] | (maskIBinary[i] ^ 255);
+                    textBoxBroadcastAddress.Text += broadcast[i] + "";
+                    if (i != 3)
+                    {
+                        textBoxBroadcastAddress.Text += ".";
+                    }
+                }
+            }
+        }
+        public void setAddressRange()
+        {
+            addressRange1 = subnetId;
+            addressRange1[3] += 1;
+            addressRange1Copy = addressRange1.Select(x => x.ToString()).ToArray();
 
-        private void IpToHex()
+            addressRange2 = broadcast;
+            addressRange2[3] -= 1;
+            addressRange2Copy = addressRange2.Select(x => x.ToString()).ToArray();
+
+            textBoxHostAddressRange.Text = String.Join(".", addressRange1Copy) + " - " + String.Join(".", addressRange2Copy);
+        }
+        public void IpToHex()
         {
             string str = "";
             for (int i = 0; i < 4; i++)
@@ -564,29 +536,85 @@ namespace SubNetCalc
             }
             textBoxHexIPAddress.Text = str;
         }
-        private void maskToWildcard()
+        public void subnetBitmap()
         {
-            if(isLoaded)
+            if (radioButton1.Checked == true)
             {
-                wildcardS1Mask = comboBoxSubnetMask.Text;
-                wildcardS2Mask = wildcardS1Mask.Split('.');
-                wildcardIMask = Array.ConvertAll(wildcardS2Mask, s => int.Parse(s));
-                for (int i = 0; i < 4; i++)
+                string sBitmap = "0";
+                bitmap = "";
+                
+                for (int i = 0; i < 7; i++)
                 {
-                    wildcardIMask2[i] = wildcardIMask1[i] - wildcardIMask[i];
+                    sBitmap += "n";
                 }
-                wildcardMaskCopy = wildcardIMask2.Select(x => x.ToString()).ToArray();
-                textBoxWildcardMask.Text = String.Join(".", wildcardMaskCopy);
+                for (int i = 0; i <= comboBoxSubnetBits.SelectedIndex - 1; i++)
+                {
+                    sBitmap += "s";                   
+                }
+                for (int i = 22; i >= comboBoxHostsPerSubnet.SelectedIndex - 1; i--)
+                {
+                    sBitmap += "h";
+                }
+                for(int i = 0; i < 32; i++)
+                {
+                    bitmap += sBitmap[i];
+                    if(i == 7 || i == 15 || i == 23)
+                    {
+                        bitmap += ".";
+                    }
+                }
             }
-        }
-        public void convertSubnetMaskToInt()
-        {
-            if (isLoaded)
+            else if(radioButton2.Checked == true)
             {
-                maskSBinary1 = comboBoxSubnetMask.Text;
-                maskSBinary2 = maskSBinary1.Split('.');
-                maskIBinary = Array.ConvertAll(maskSBinary2, s => int.Parse(s));
+                string sBitmap = "10";
+                bitmap = "";
+                for (int i = 0; i < 14; i++)
+                {
+                    sBitmap += "n";
+                }
+                for (int i = 0; i <= comboBoxSubnetBits.SelectedIndex - 1; i++)
+                {
+                    sBitmap += "s";
+                }
+                for (int i = 22; i >= comboBoxHostsPerSubnet.SelectedIndex - 1; i--)
+                {
+                    sBitmap += "h";
+                }
+                for (int i = 0; i < 32; i++)
+                {
+                    bitmap += sBitmap[i];
+                    if (i == 7 || i == 15 || i == 23)
+                    {
+                        bitmap += ".";
+                    }
+                }
             }
+            else
+            {
+                string sBitmap = "110";
+                bitmap = "";
+                for (int i = 0; i < 21; i++)
+                {
+                    sBitmap += "n";
+                }
+                for (int i = 0; i <= comboBoxSubnetBits.SelectedIndex - 1; i++)
+                {
+                    sBitmap += "s";
+                }
+                for (int i = 22; i >= comboBoxHostsPerSubnet.SelectedIndex - 1; i--)
+                {
+                    sBitmap += "h";
+                }
+                for (int i = 0; i < 32; i++)
+                {
+                    bitmap += sBitmap[i];
+                    if (i == 7 || i == 15 || i == 23)
+                    {
+                        bitmap += ".";
+                    }
+                }
+            }
+            textBoxSubnetBitmap.Text = bitmap;
         }
         public void onUpdateOperation()
         {
@@ -650,55 +678,6 @@ namespace SubNetCalc
             }
             subnetBitmap();
         }
-        public void setSubnetId()
-        {
-            if (isLoaded)
-            {
-                textBoxSubnetID.Text = "";
-                for (int i = 0; i < 4;i++)
-                {
-                    subnetId[i] = ipIValue[i] & maskIBinary[i];
-                    textBoxSubnetID.Text += subnetId[i] + "";
-                    if(i != 3)
-                    {
-                        textBoxSubnetID.Text += ".";
-                    }
-                }
-            }
-        }
-        private void setBroadcastAddress()
-        {
-            broadcast = wildcardIMask2;
-
-            if (isLoaded)
-            {
-                textBoxBroadcastAddress.Text = "";
-                for (int i = 0; i < 4; i++)
-                {
-                    /*if() //Do poprawy
-                    {
-                        broadcast[i] = ipIValue[i] & maskIBinary[i];
-                        textBoxBroadcastAddress.Text += subnetId[i] + "";
-                        if (i != 3)
-                        {
-                            textBoxBroadcastAddress.Text += ".";
-                        }
-                    }*/
-                }
-            }
-        }
-        private void setAddressRange()
-        {
-            addressRange1 = subnetId;
-            addressRange1[3] += 1;
-            addressRange1Copy = addressRange1.Select(x => x.ToString()).ToArray();
-
-            addressRange2 = broadcast;
-            addressRange2[3] -= 1;
-            addressRange2Copy = addressRange2.Select(x => x.ToString()).ToArray();
-
-            textBoxHostAddressRange.Text = String.Join(".", addressRange1Copy) + " - " + String.Join(".", addressRange2Copy);
-        }
         #endregion
         #region [miscFunctions]
         //Unused funtions that can't be deleted
@@ -712,7 +691,6 @@ namespace SubNetCalc
             createAndClearComboBoxes(1, ref isLoaded);
             onUpdateOperation();
         }
-
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
             radioButtonChangeValues(2);
@@ -720,7 +698,6 @@ namespace SubNetCalc
             createAndClearComboBoxes(2, ref isLoaded);
             onUpdateOperation();
         }
-
         private void radioButton3_CheckedChanged(object sender, EventArgs e)
         {
             radioButtonChangeValues(3);
@@ -728,17 +705,11 @@ namespace SubNetCalc
             createAndClearComboBoxes(3, ref isLoaded);
             onUpdateOperation();
         }
-
         private void textBoxIpAdress_TextChanged(object sender,EventArgs e)
         {
             if(isIpOk())
-            {
                 onUpdateOperation();
-            }
         }
         #endregion
-
     }
-
-
 }
