@@ -1,2 +1,2 @@
 # Charcolator
-Basic subnetcalculator made for school project
+Basic subnet calculator made for school project
